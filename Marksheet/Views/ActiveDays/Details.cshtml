@@ -1,0 +1,51 @@
+﻿@model Marksheet.Models.ActiveDays
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ActiveDays</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AcademicYear.FiscalYear)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AcademicYear.FiscalYear)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.School.SchoolName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.School.SchoolName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TerminalName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TerminalName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Activeday)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Activeday)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
