@@ -14,7 +14,7 @@ using System.Web.Mvc;
 
 namespace Marksheet.Controllers
 {
-    [SessionCheck]
+    [SessionCheck(Role ="SuperAdmin,Admin")]
     public class AccountController : Controller
     {
 
@@ -68,7 +68,7 @@ namespace Marksheet.Controllers
             ModelState.Clear();
             return View();
         }
-
+        [SessionCheck(Role ="SuperAdmin")]
         public ActionResult CreateAdmin()
         {
             return View();

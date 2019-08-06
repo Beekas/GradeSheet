@@ -293,5 +293,5 @@ E:\Projects\Marksheet\Marksheet\obj\Debug\Marksheet.csproj.CoreCompileInputs.cac
 E:\Projects\Marksheet\Marksheet\obj\Debug\Marksheet.csproj.CopyComplete
 E:\Projects\Marksheet\Marksheet\obj\Debug\Marksheet.dll
 E:\Projects\Marksheet\Marksheet\obj\Debug\Marksheet.pdb
-E:\Projects\Marksheet\Marksheet\obj\Debug\Marksheet.Migrations.marksheet.resources
+E:\Projects\Marksheet\Marksheet\obj\Debug\Marksheet.Migrations._decimal.resources
 E:\Projects\Marksheet\Marksheet\obj\Debug\Marksheet.csproj.GenerateResource.cache

@@ -25,17 +25,17 @@ namespace Marksheet.Filters
                                 { "action", "Login" }
                      });
                 }
-               //string[] roles = Role.Split(',');
-               // string val = HttpContext.Current.Session["Category"].ToString();
-                //int pos = Array.IndexOf(roles, val);
-                //if (pos > -1)
-                //{
-                //    base.OnActionExecuting(filterContext);
-                //}
-                //else
-                //{
-                //    filterContext.Result = new HttpStatusCodeResult(HttpStatusCode.NotFound);
-                //}
+                string[] roles = Role.Split(',');
+                string val = HttpContext.Current.Session["Category"].ToString();
+                int pos = Array.IndexOf(roles, val);
+                if (pos > -1)
+                {
+                    base.OnActionExecuting(filterContext);
+                }
+                else
+                {
+                    filterContext.Result = new HttpStatusCodeResult(HttpStatusCode.NotFound);
+                }
                 //    Boolean notfound = false;
                 //if (roles.Length > 0)
                 //{
@@ -45,12 +45,12 @@ namespace Marksheet.Filters
                 //        {
                 //            //filterContext.Result = new RedirectResult("~/Account/Login");
                 //            //return;
-                           
+
                 //            break;
                 //        }
                 //    }
                 //    filterContext.Result = new HttpStatusCodeResult(HttpStatusCode.NotFound);
-                   
+
 
                 //}
 

@@ -11,7 +11,7 @@ using Marksheet.Filters;
 
 namespace Marksheet.Controllers
 {
-    [SessionCheck]
+    [SessionCheck(Role ="SuperAdmin,Admin")]
     public class MarkSheetController : Controller
     {
         private string[] Subjects = new string[] { "English", "Nepali", "Mathematics", "Science", "Social Studies", "Health", "OBTE","Moral", "Optional1" };
@@ -519,7 +519,7 @@ namespace Marksheet.Controllers
             }
             return null;
         }
-        public string findGrade(int marks, int fullmarks)
+        public string findGrade(decimal marks, decimal fullmarks)
         {
             decimal percentage = Convert.ToDecimal(marks) / fullmarks * 100;
 
@@ -573,7 +573,7 @@ namespace Marksheet.Controllers
 
         }
 
-        public string findGradePoint(int marks,int fullmarks)
+        public string findGradePoint(decimal marks,decimal fullmarks)
         {
             decimal percentage =Convert.ToDecimal(marks)/fullmarks*100;
 
@@ -1001,9 +1001,17 @@ namespace Marksheet.Controllers
             if (!string.IsNullOrEmpty(SchoolId) && !string.IsNullOrEmpty(Terminal) && ActiveYearId != null)
             {
                 List<GradeVM> grades = GetGradeVM(Convert.ToInt32(SchoolId), ActiveYearId.Value, Terminal);
-                if (grades.Count == 0)
+                if (grades == null)
                 {
-                    return RedirectToAction("SelectSchoolPrint");   
+                    TempData["ErrorMessage"] = "No record found";
+                    return RedirectToAction("SelectSchoolPrint");
+                }
+                else {
+                    if (grades.Count == 0)
+                    {
+                        TempData["ErrorMessage"] = "No record found";
+                        return RedirectToAction("SelectSchoolPrint");
+                    }
                 }
                 return View(grades);
            }

@@ -15,7 +15,7 @@ using Marksheet.ViewModels;
 
 namespace Marksheet.Controllers
 {
-    [SessionCheck]
+    [SessionCheck(Role="SuperAdmin,Admin")]
     public class SchoolsController : Controller
     {
         private MarkSheetEntities db = new MarkSheetEntities();

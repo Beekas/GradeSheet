@@ -13,7 +13,7 @@ using Marksheet.Models;
 
 namespace Marksheet.Controllers
 {
-    [SessionCheck]
+    [SessionCheck(Role ="SuperAdmin,Admin")]
     public class ActiveDaysController : Controller
     {
         private MarkSheetEntities db = new MarkSheetEntities();

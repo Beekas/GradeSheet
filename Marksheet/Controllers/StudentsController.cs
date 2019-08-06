@@ -12,7 +12,7 @@ using Marksheet.Models;
 
 namespace Marksheet.Controllers
 {
-    [SessionCheck]
+    [SessionCheck(Role ="SuperAdmin,Admin")]
     public class StudentsController : Controller
     {
         private MarkSheetEntities db = new MarkSheetEntities();

@@ -181,9 +181,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201908021131124_marksheet.cs" />
-    <Compile Include="Migrations\201908021131124_marksheet.Designer.cs">
-      <DependentUpon>201908021131124_marksheet.cs</DependentUpon>
+    <Compile Include="Migrations\201908050849587_decimal.cs" />
+    <Compile Include="Migrations\201908050849587_decimal.Designer.cs">
+      <DependentUpon>201908050849587_decimal.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AcademicYear.cs" />
@@ -2014,6 +2014,7 @@
     <Content Include="Admin\vendor\fontawesome-free\webfonts\fa-solid-900.woff2" />
     <Content Include="Admin\vendor\jquery\jquery.min.map" />
     <Content Include="Admin\vendor\jquery\jquery.slim.min.map" />
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\datatables\autoFill.bootstrap.js" />
     <Content Include="Scripts\datatables\autoFill.bootstrap.min.js" />
@@ -2169,7 +2170,9 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Web.config" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -2262,6 +2265,7 @@
     <Content Include="Views\MarkSheet\ViewGradeSheet.cshtml" />
     <Content Include="Views\MarkSheet\ViewGradeSheetSchool.cshtml" />
     <Content Include="Views\MarkSheet\ViewMarkSheet.cshtml" />
+    <Content Include="Views\SchoolLogin\SchoolDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2282,8 +2286,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201908021131124_marksheet.resx">
-      <DependentUpon>201908021131124_marksheet.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201908050849587_decimal.resx">
+      <DependentUpon>201908050849587_decimal.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
