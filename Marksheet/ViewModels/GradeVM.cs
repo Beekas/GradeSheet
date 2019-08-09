@@ -9,6 +9,7 @@ namespace Marksheet.ViewModels
     {
         public string StudentName { get; set; }
         public string DOB { get; set; }
+        public string DOBNep { get; set; }
         public string RollNo { get; set; }
         public string TerminalExam { get; set; }
         public string AcademicYear { get; set; }
@@ -21,6 +22,7 @@ namespace Marksheet.ViewModels
         public string AcademicDay { get; set; }
         public string PresentDay { get; set; }
         public string Logo { get; set; }
+        public string SchoolCodeNo { get; set; }
 
         public List<SubjectVM> Subjects { get; set; }
 
@@ -40,6 +42,7 @@ namespace Marksheet.ViewModels
         public string FinalGrade { get; set; }
         public string GradePoint { get; set; }
         public string Remarks { get; set; }
+        public int Serial { get; set; }
     }
 
 

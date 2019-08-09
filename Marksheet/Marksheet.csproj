@@ -185,6 +185,10 @@
     <Compile Include="Migrations\201908050849587_decimal.Designer.cs">
       <DependentUpon>201908050849587_decimal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908090901573_schoolcode.cs" />
+    <Compile Include="Migrations\201908090901573_schoolcode.Designer.cs">
+      <DependentUpon>201908090901573_schoolcode.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AcademicYear.cs" />
     <Compile Include="Models\Account.cs" />
@@ -200,6 +204,7 @@
     <Compile Include="ViewModels\ChangePasswordViewModel.cs" />
     <Compile Include="ViewModels\GradeVM.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\MarkAllVM.cs" />
     <Compile Include="ViewModels\MarksheetVM.cs" />
     <Compile Include="ViewModels\MarksVM.cs" />
     <Compile Include="ViewModels\PasswordConform.cs" />
@@ -2266,6 +2271,8 @@
     <Content Include="Views\MarkSheet\ViewGradeSheetSchool.cshtml" />
     <Content Include="Views\MarkSheet\ViewMarkSheet.cshtml" />
     <Content Include="Views\SchoolLogin\SchoolDetail.cshtml" />
+    <Content Include="Views\MarkSheet\ViewMarkSheetSchool.cshtml" />
+    <Content Include="Views\MarkSheet\SelectSchoolPrintM.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2288,6 +2295,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201908050849587_decimal.resx">
       <DependentUpon>201908050849587_decimal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908090901573_schoolcode.resx">
+      <DependentUpon>201908090901573_schoolcode.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

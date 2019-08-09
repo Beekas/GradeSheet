@@ -1,0 +1,293 @@
+﻿@model List<Marksheet.ViewModels.MarkAllVM>
+@{
+    ViewBag.Title = "MarkSheet";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<style>
+
+    #tbl {
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 12px;
+    }
+
+        #tbl td, #tbl th {
+            border: 1px solid black;
+            padding: 1px;
+        }
+
+    .alignleft {
+        float: left;
+        text-align: left;
+        width: 50%;
+    }
+
+    .alignright {
+        float: left;
+        text-align: left;
+        width: 50%;
+    }
+
+    .alignleft3 {
+        float: left;
+        text-align: center;
+        width: 33.33%;
+    }
+
+    .alignright3 {
+        float: right;
+        text-align: center;
+        width: 33.33%;
+    }
+
+    .aligncenter3 {
+        float: left;
+        text-align: center;
+        width: 33.33%;
+    }
+</style>
+<div class="card">
+    <div class="card-header py-3">
+        <h3 class="m-1 font-weight-bold center text-primary">School Wise MarkSheet </h3>
+    </div>
+    <div class="card-body">
+        <div class="row" id="printDiv" style="overflow-x:scroll;font-size:12px;width:845px;">
+            <div class="first">
+                <div class="childFirst">
+                    <div style="width:100%;min-height:3cm;">
+                        <div style="width:10%;text-align:center;float:left;">
+                            <img style="max-height:100%;max-width:100%;" src="@Model[0].Logo" onerror="this.style.display='none'" />
+                        </div>
+                        <div style="width:90%;text-align:center;float:left;">
+                            <b style="font-size:15px;">Siddheshwor Metropolitan/Sub-Metropolitan/Municipatility/Rural Municipatility</b><br />
+                            <b style="font-size:15px;">BASIC LEVEL EXAMINATION </b><br />
+                            <b style="font-size:15px;">@Model[0].AcademicYear</b><br />
+                            <b style="font-size:15px;">BASIC EDUCATION CERTIFICATE(Grade-8)EXAMINATION @Model[0].AcademicYear</b><br />
+                            <b style="font-size:15px;">GRADE-LEDGER</b>
+                        </div>
+                    </div>
+                    <div style="width:100%;">
+                        <div style="width:50%;text-align:left;float:left;">
+                            Schol code No:  @Model[0].SchoolCodeNo<br />
+                            School Name:  @Model[0].SchoolName.ToUpper()
+                        </div>
+                        <div style="width:50%;text-align:right;float:right;">Year: @Model[0].AcademicYear</div>
+                    </div>
+                    <div>&nbsp;<br /></div>
+                </div>
+            </div>
+
+
+
+            <table style="overflow-x:scroll;" id="tbl" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <th style="width:7%;" rowspan="3">Symbol No</th>
+                    <th style="width:12%;" rowspan="3">Name</th>
+                    <th style="width:8%;" rowspan="3">Date of Birth</th>
+                    <th colspan="25">Subjects</th>
+                    <th rowspan="3">GPA</th>
+
+                </tr>
+                <tr>
+                    <th style="width:8%;" colspan="3">Nepali</th>
+                    <th style="width:8%;" colspan="3">English</th>
+                    <th>Mathematics</th>
+                    <th style="width:8%;" colspan="3">Science and Environment Education</th>
+                    <th style="width:8%;" colspan="3">Social Studies and Population Education</th>
+                    <th style="width:8%;" colspan="3">Health and Physical Education</th>
+                    <th style="width:8%;" colspan="3">Moral Science</th>
+                    <th colspan="3">Occupation, Business & Technology</th>
+                    <th style="width:8%;" colspan="3">@Model[0].OptionalSubject</th>
+
+
+                </tr>
+                <tr>
+                    <th>T</th>
+                    <th>P</th>
+                    <th>A</th>
+
+                    <th>T</th>
+                    <th>P</th>
+                    <th>A</th>
+
+                    <th></th>
+
+                    <th>T</th>
+                    <th>P</th>
+                    <th>A</th>
+
+                    <th>T</th>
+                    <th>P</th>
+                    <th>A</th>
+
+                    <th>T</th>
+                    <th>P</th>
+                    <th>A</th>
+
+                    <th>T</th>
+                    <th>P</th>
+                    <th>A</th>
+
+                    <th>T</th>
+                    <th>P</th>
+                    <th>A</th>
+
+                    <th>T</th>
+                    <th>P</th>
+                    <th>A</th>
+
+                </tr>
+
+
+                @foreach (var item in Model.AsEnumerable())
+                {
+                    <tr>
+                        <td>@item.SymbolNo</td>
+                        <td>@item.StudentName</td>
+                        <td>@item.DOB</td>
+
+                        <td>@item.NepaliTM.ToString("G29")</td>
+                        <td>@item.NepaliPM.ToString("G29")</td>
+                        <td>@item.NepaliAM.ToString("G29")</td>
+
+                        <td>@item.EnglishTM.ToString("G29")</td>
+                        <td>@item.EnglishPM.ToString("G29")</td>
+                        <td>@item.EnglishAM.ToString("G29")</td>
+
+                        <td>@item.MathTM.ToString("G29")</td>
+
+                        <td>@item.ScienceTM.ToString("G29")</td>
+                        <td>@item.SciencePM.ToString("G29")</td>
+                        <td>@item.ScienceAM.ToString("G29")</td>
+
+                        <td>@item.SocialTM.ToString("G29")</td>
+                        <td>@item.SocialPM.ToString("G29")</td>
+                        <td>@item.SocialAM.ToString("G29")</td>
+
+                        <td>@item.HealthTM.ToString("G29")</td>
+                        <td>@item.HealthPM.ToString("G29")</td>
+                        <td>@item.HealthAM.ToString("G29")</td>
+
+                        <td>@item.MoralTM.ToString("G29")</td>
+                        <td>@item.MoralPM.ToString("G29")</td>
+                        <td>@item.MoralAM.ToString("G29")</td>
+
+                        <td>@item.ObteTM.ToString("G29")</td>
+                        <td>@item.ObtePM.ToString("G29")</td>
+                        <td>@item.ObteAM.ToString("G29")</td>
+
+                        <td>@item.Optional1TM.ToString("G29")</td>
+                        <td>@item.Optional1PM.ToString("G29")</td>
+                        <td>@item.Optional1AM.ToString("G29")</td>
+
+                        <td>@item.GPA.ToString("0.00")</td>
+
+                    </tr>
+                }
+            </table>
+            <div class="third">
+                <div style="width:100%;float:right;text-align:right;">................<br /><b>Verified By</b></div>
+            </div>
+        </div>
+    </div>
+    <br />
+    @*<div class="col-md-12" style="padding-left:200px;">*@
+    <div class="col-md-10" style="text-align:center; padding-top:15px;">
+
+        <input type="submit" class="btn btn-primary" id="btnPrint" value="Print" />
+
+    </div>
+</div>
+
+
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jquery.ui")
+    @Styles.Render("~/Content/css/jquery.ui")
+    <script src="~/Scripts/googoose.js"></script>
+    <script language="javascript">
+        $(document).ready(function () {
+
+            $("#btnPrint").click(function (e) {
+                PrintElem("printDiv");
+            });
+            function PrintElem(elem) {
+                var mywindow = window.open('', 'PRINT', 'height=842,width=595');
+
+                mywindow.document.write('<html><head><style>body {font-size:12px;}#tbl {border-collapse: collapse !important;width: 100%;font-size: 12px;}#tbl td, #tbl th {border: 1px solid black !important;padding: 1px !important;} .alignleft {float: left;text-align: left;width: 33.33333%;}.aligncenter {float: left;text-align: center;width: 33.33333%;}.alignright {float: right;text-align: right;width: 33.33333%;}</style><title></title>');
+                mywindow.document.write('</head><body >');
+                //mywindow.document.write('<h1>' + document.title  + '</h1>');
+                mywindow.document.write(document.getElementById(elem).innerHTML);
+                mywindow.document.write('</body></html>');
+
+                mywindow.document.close(); // necessary for IE >= 10
+                mywindow.focus(); // necessary for IE >= 10*/
+
+                mywindow.print();
+                mywindow.close();
+
+                return true;
+            }
+        });
+    </script>
+}
+@*@section Scripts{
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/jqueryval")
+        @Scripts.Render("~/bundles/jquery.ui")
+        @Styles.Render("~/Content/css/jquery.ui")
+
+        <script language="javascript">
+            $(document).ready(function () {
+
+                $("#btnPrint").click(function (e) {
+                    var html = "";
+                    html = formatHtml();
+                    PrintElem(html);
+
+                });
+            });
+            function formatHtml() {
+                var $divBoxs = $(".row").find("div.page");
+                var html = "";
+                var pageHead = "<div class='page'>";
+                var pageBottom = "</div>";
+                $.each($divBoxs, function (i, el) {
+                    html = html + pageHead + $(el).html() + pageBottom;
+                });
+                return html;
+            }
+
+
+
+
+            function PrintElem(ele) {
+                var mywindow = window.open('', '_blank', 'PRINT');
+
+                mywindow.document.write('<!DOCTYPE html><html><head><style>' +
+                    //'body {margin:0;padding:0;font:12pt;}*{box-sizing: border-box;-moz-box-sizing:border-box;}' +
+                    '.page {page-break-after:always;width:26.7cm;min-height:21cm ;padding: 0.5cm;margin:1cm auto;border: 1px black solid;background: white;box-sizing: border-box;-moz-box-sizing:border-box;}'
+                    + 'table#tbl {border-collapse: collapse !important;width: 100%;}#tbl td, #tbl th {border: 1px solid black !important;padding: 1px !important;} .alignleft3 {float: left;text-align:left;width: 33.33333%;}.aligncenter3 {float: left;text-align:center;width: 33.33333%;}.alignright3 {float: right;text-align: right;width: 33.33333%;}' +
+                    '.alignleft {float:left;text-align:left; width:50%;}.alignright {float:left;text-align:left;width:50%;}' +
+
+                    'div#one{width:98%;float: left;}' +
+                    + 'div#two{width:98%;float: left;}' +
+                    'div#three{width:98%;float: left;}' +
+                    '</style><title>MarkSheet</title>');
+                mywindow.document.write('</head><body >');
+                mywindow.document.write(ele);
+                mywindow.document.write('</body></html>');
+
+                mywindow.document.close();
+                mywindow.focus();
+
+                mywindow.print();
+                mywindow.close();
+
+                return true;
+            }
+
+        </script>
+    }*@

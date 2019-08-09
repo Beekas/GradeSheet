@@ -11,10 +11,10 @@ using Marksheet.Filters;
 
 namespace Marksheet.Controllers
 {
-    [SessionCheck(Role ="SuperAdmin,Admin")]
+    [SessionCheck(Role = "SuperAdmin,Admin")]
     public class MarkSheetController : Controller
     {
-        private string[] Subjects = new string[] { "English", "Nepali", "Mathematics", "Science", "Social Studies", "Health", "OBTE","Moral", "Optional1" };
+        private string[] Subjects = new string[] { "English", "Nepali", "Mathematics", "Science", "Social Studies", "Health", "OBTE", "Moral", "Optional1" };
         private readonly MarkSheetEntities db = new MarkSheetEntities();
 
 
@@ -35,7 +35,7 @@ namespace Marksheet.Controllers
         // GET: MarkSheet
         public ActionResult Index()
         {
-           // List<ResultVM> Results = new List<ResultVM>();
+            // List<ResultVM> Results = new List<ResultVM>();
             IEnumerable<Models.Marksheet> marksheets = db.Marksheets.Include(m => m.Student).Include(m => m.AcademicYear).ToList();
             //foreach (Models.Marksheet item in marksheets)
             //{
@@ -295,6 +295,10 @@ namespace Marksheet.Controllers
         //    return RedirectToAction("Index");
         //}
 
+
+
+
+
         public ActionResult ViewGradeSheet(int? id)
         {
             if (id == null)
@@ -350,7 +354,7 @@ namespace Marksheet.Controllers
                             objSubj.Practical = findGrade(marksheet.EnglishPM, 25);
                             objSubj.Remarks = "";
                             objSubj.FinalGrade = findGrade((marksheet.EnglishPM + marksheet.EnglishTM), 100);
-                            objSubj.GradePoint = findGradePoint((marksheet.EnglishPM + marksheet.EnglishTM),100);
+                            objSubj.GradePoint = findGradePoint((marksheet.EnglishPM + marksheet.EnglishTM), 100);
                             lstSubject.Add(objSubj);
 
                             break;
@@ -361,7 +365,7 @@ namespace Marksheet.Controllers
                             objSubj.Practical = findGrade(marksheet.NepaliPM, 25);
                             objSubj.Remarks = "";
                             objSubj.FinalGrade = findGrade((marksheet.NepaliTM + marksheet.NepaliPM), 100);
-                            objSubj.GradePoint = findGradePoint((marksheet.NepaliTM + marksheet.NepaliPM),100);
+                            objSubj.GradePoint = findGradePoint((marksheet.NepaliTM + marksheet.NepaliPM), 100);
                             lstSubject.Add(objSubj);
 
                             break;
@@ -372,7 +376,7 @@ namespace Marksheet.Controllers
                             objSubj.Practical = "";
                             objSubj.Remarks = "";
                             objSubj.FinalGrade = findGrade((marksheet.MathTM), 100);
-                            objSubj.GradePoint = findGradePoint((marksheet.MathTM),100);
+                            objSubj.GradePoint = findGradePoint((marksheet.MathTM), 100);
                             lstSubject.Add(objSubj);
 
                             break;
@@ -383,7 +387,7 @@ namespace Marksheet.Controllers
                             objSubj.Practical = findGrade(marksheet.SciencePM, 25);
                             objSubj.Remarks = "";
                             objSubj.FinalGrade = findGrade((marksheet.SciencePM + marksheet.ScienceTM), 100);
-                            objSubj.GradePoint = findGradePoint((marksheet.ScienceTM + marksheet.SciencePM),100);
+                            objSubj.GradePoint = findGradePoint((marksheet.ScienceTM + marksheet.SciencePM), 100);
                             lstSubject.Add(objSubj);
 
                             break;
@@ -394,7 +398,7 @@ namespace Marksheet.Controllers
                             objSubj.Practical = findGrade(marksheet.SocialPM, 25);
                             objSubj.Remarks = "";
                             objSubj.FinalGrade = findGrade((marksheet.SocialTM + marksheet.SocialPM), 100);
-                            objSubj.GradePoint = findGradePoint((marksheet.SocialTM + marksheet.SocialPM),100);
+                            objSubj.GradePoint = findGradePoint((marksheet.SocialTM + marksheet.SocialPM), 100);
                             lstSubject.Add(objSubj);
 
                             break;
@@ -405,7 +409,7 @@ namespace Marksheet.Controllers
                             objSubj.Practical = findGrade(marksheet.HealthPM, 20);
                             objSubj.Remarks = "";
                             objSubj.FinalGrade = findGrade((marksheet.HealthPM + marksheet.HealthTM), 50);
-                            objSubj.GradePoint = findGradePoint((marksheet.HealthPM + marksheet.HealthTM),50);
+                            objSubj.GradePoint = findGradePoint((marksheet.HealthPM + marksheet.HealthTM), 50);
                             lstSubject.Add(objSubj);
 
                             break;
@@ -442,8 +446,8 @@ namespace Marksheet.Controllers
                                 int theoryMark = db.OptionalSubjects.Include(m => m.Subject).FirstOrDefault(m => m.SchoolId == marksheet.SchoolId).Subject.TFullMarks;
                                 objSubj.Practical = findGrade(marksheet.Optional1PM, practicalMark);
                                 objSubj.Theory = findGrade(marksheet.Optional1TM, (theoryMark));
-                                objSubj.FinalGrade = findGrade(marksheet.Optional1PM + marksheet.Optional1TM, (theoryMark+practicalMark));
-                                objSubj.GradePoint = findGradePoint((marksheet.Optional1PM + marksheet.Optional1TM),(practicalMark+theoryMark));
+                                objSubj.FinalGrade = findGrade(marksheet.Optional1PM + marksheet.Optional1TM, (theoryMark + practicalMark));
+                                objSubj.GradePoint = findGradePoint((marksheet.Optional1PM + marksheet.Optional1TM), (practicalMark + theoryMark));
 
                             }
                             else
@@ -452,7 +456,7 @@ namespace Marksheet.Controllers
                                 objSubj.Practical = "";
                                 objSubj.Theory = findGrade(marksheet.Optional1TM, (theoryMark));
                                 objSubj.FinalGrade = findGrade(marksheet.Optional1TM, theoryMark);
-                                objSubj.GradePoint = findGradePoint(marksheet.Optional1TM,theoryMark);
+                                objSubj.GradePoint = findGradePoint(marksheet.Optional1TM, theoryMark);
                             }
                             lstSubject.Add(objSubj);
 
@@ -573,9 +577,9 @@ namespace Marksheet.Controllers
 
         }
 
-        public string findGradePoint(decimal marks,decimal fullmarks)
+        public string findGradePoint(decimal marks, decimal fullmarks)
         {
-            decimal percentage =Convert.ToDecimal(marks)/fullmarks*100;
+            decimal percentage = Convert.ToDecimal(marks) / fullmarks * 100;
 
             if (percentage >= 90)
             {
@@ -715,13 +719,13 @@ namespace Marksheet.Controllers
                                                      new SelectListItem{Text="Second",Value="Second" },
                                                     new SelectListItem{Text="Final",Value="Final"}
                                                     };
-            SelectList ActiveYears = new SelectList(db.AcademicYears, "Id", "Year",marks[0].AcedamicYearId);
+            SelectList ActiveYears = new SelectList(db.AcademicYears, "Id", "Year", marks[0].AcedamicYearId);
             marks[0].AcademicYears = ActiveYears;
 
             marks[0].Terminal = new SelectList(terminals, "Value", "Text");
             if (ModelState.IsValid)
             {
-              //  string activeYear = col["ActiveYearId"];
+                //  string activeYear = col["ActiveYearId"];
                 string term = col["Term"].ToString();
                 if (string.IsNullOrEmpty(col["ActiveYearId"].ToString()) || string.IsNullOrEmpty(col["Term"].ToString()))
                 {
@@ -733,7 +737,7 @@ namespace Marksheet.Controllers
 
                 School school = db.Schools.Find(marks[0].SchoolId.Value);
                 AcademicYear year = db.AcademicYears.Find(yearId);
-              
+
                 if (string.IsNullOrEmpty(term))
                 {
 
@@ -836,6 +840,28 @@ namespace Marksheet.Controllers
             }
 
         }
+
+
+        public ActionResult SelectSchoolPrintM()
+        {
+            if (db.Schools.Any())
+            {
+                ViewBag.SchoolId = new SelectList(db.Schools.ToList(), "Id", "SchoolName");
+                List<SelectListItem> terminals = new List<SelectListItem> {
+                                                    new SelectListItem{Text="First",Value="First" },new SelectListItem{Text="Second",Value="Second" },new SelectListItem{Text="Final",Value="Final"}
+                                                };
+                ViewBag.Terminal = new SelectList(terminals, "value", "text");
+                ViewBag.ActiveYearId = new SelectList(db.AcademicYears, "Id", "Year");
+                return View();
+            }
+            else
+            {
+                TempData["ErrorMessage"] = "No record found for school.";
+                return RedirectToAction("Index", "School");
+            }
+
+        }
+
         public ActionResult Edit(string SchoolId, string Terminal, int? ActiveYearId)
         {
             if (string.IsNullOrEmpty(SchoolId) && String.IsNullOrEmpty(Terminal) && ActiveYearId == null)
@@ -843,7 +869,7 @@ namespace Marksheet.Controllers
                 TempData["ErrorMessage"] = "Error! Select School, Term and Year and submit.";
                 return RedirectToAction("SelectSchoolEdit");
             }
-            
+
             int schoolId = Convert.ToInt32(SchoolId);
             int yearId = ActiveYearId.Value;
 
@@ -864,7 +890,7 @@ namespace Marksheet.Controllers
             IEnumerable<Subject> subjects = db.OptionalSubjects.Where(m => m.SchoolId == schoolId).Select(m => m.Subject);
             string optional1 = "Optional1";
             bool IsPractical1 = false;
-            if (subjects.ToList().Count >=1)
+            if (subjects.ToList().Count >= 1)
             {
 
                 optional1 = subjects.First().SubName;
@@ -977,7 +1003,7 @@ namespace Marksheet.Controllers
                     {
                         objmark.Optional1PM = item.Optional1PM;
                     }
-                    
+
                     db.SaveChanges();
                 }
                 //}
@@ -990,8 +1016,8 @@ namespace Marksheet.Controllers
                 TempData["Message"] = "Successfully Updated!";
                 return RedirectToAction("Index");
             }
-            
-          
+
+
             ViewBag.ErrorMessage = "Error! Something Went Wrong.";
             return View(marks);
         }
@@ -1006,7 +1032,8 @@ namespace Marksheet.Controllers
                     TempData["ErrorMessage"] = "No record found";
                     return RedirectToAction("SelectSchoolPrint");
                 }
-                else {
+                else
+                {
                     if (grades.Count == 0)
                     {
                         TempData["ErrorMessage"] = "No record found";
@@ -1014,17 +1041,131 @@ namespace Marksheet.Controllers
                     }
                 }
                 return View(grades);
-           }
+            }
             return RedirectToAction("SelectSchoolPrint");
         }
 
+        public ActionResult ViewMarkSheetSchool(string SchoolId, string Terminal, int? ActiveYearId)
+        {
+            if (!string.IsNullOrEmpty(SchoolId) && !string.IsNullOrEmpty(Terminal) && ActiveYearId != null)
+            {
+                List<MarkAllVM> grades = GetMarkVM(Convert.ToInt32(SchoolId), ActiveYearId.Value, Terminal);
+                if (grades == null)
+                {
+                    TempData["ErrorMessage"] = "No record found";
+                    return RedirectToAction("SelectSchoolPrintM");
+                }
+                else
+                {
+                    if (grades.Count == 0)
+                    {
+                        TempData["ErrorMessage"] = "No record found";
+                        return RedirectToAction("SelectSchoolPrintM");
+                    }
+                }
+                return View(grades);
+            }
+            return RedirectToAction("SelectSchoolPrintM");
+        }
+
+
+        public List<MarkAllVM> GetMarkVM(int SchoolId, int ActiveYearId, string Terminal)
+        {
+            if (db.Marksheets.Any(m => m.SchoolId == SchoolId && m.AcedamicYearId == ActiveYearId && m.Term == Terminal))
+            {
+                IEnumerable<Models.Marksheet> marksheets = db.Marksheets.Include(m => m.Student).Include(m => m.Student.School).Include(m => m.AcademicYear).Where(m => m.SchoolId == SchoolId && m.AcedamicYearId == ActiveYearId && m.Term == Terminal);
+                List<MarkAllVM> lstGrade = new List<MarkAllVM>();
+
+                foreach (var item in marksheets)
+                {
+                    Models.Marksheet marksheet = db.Marksheets.Find(item.Id);
+                    MarkAllVM marksvm = new MarkAllVM();
+                    string activeDays = db.ActiveDays.FirstOrDefault(m => m.SchoolId == item.Student.SchoolId &&
+                                                m.AcademicYearId == marksheet.AcedamicYearId &&
+                                                m.TerminalName == marksheet.Term).Activeday.ToString();
+
+                    if (marksheet != null)
+                    {
+                        marksvm.SchoolName = item.Student.School.SchoolName;
+                        marksvm.SchoolCodeNo = item.Student.School.SchoolCodeNo;
+                        marksvm.AcademicYear = marksheet.AcademicYear.Year;
+                        marksvm.Logo = "/images/" + item.SchoolId.ToString() + ".jpg";
+
+
+                        marksvm.StudentName = item.Student.StudentName;
+                        marksvm.DOB = item.Student.DOB.ToString("yyyy-MM-dd");
+                        marksvm.SymbolNo = item.Student.SymbolNo;
+                        marksvm.NepaliPM = item.NepaliPM;
+                        marksvm.NepaliTM = item.NepaliTM;
+                        marksvm.NepaliAM = item.NepaliTM + item.NepaliPM;
+                        marksvm.EnglishPM = item.EnglishPM;
+                        marksvm.EnglishTM = item.EnglishTM;
+                        marksvm.EnglishAM = item.EnglishTM + item.EnglishPM;
+                        marksvm.MathTM = item.MathTM;
+                        marksvm.ScienceAM = item.SciencePM + item.ScienceTM;
+                        marksvm.ScienceTM = item.ScienceTM;
+                        marksvm.SciencePM = item.SciencePM;
+                        marksvm.SocialAM = item.SocialPM + item.SocialTM;
+                        marksvm.SocialPM = item.SocialPM;
+                        marksvm.SocialTM = item.SocialTM;
+                        marksvm.HealthAM = item.HealthPM + item.HealthTM;
+                        marksvm.HealthPM = item.HealthPM;
+                        marksvm.HealthTM = item.HealthTM;
+                        marksvm.MoralAM = item.MoralPM + item.MoralTM;
+                        marksvm.MoralPM = item.MoralPM;
+                        marksvm.MoralTM = item.MoralTM;
+                        marksvm.ObteAM = item.ObtePM + item.ObteTM;
+                        marksvm.ObteTM = item.ObteTM;
+                        marksvm.ObtePM = item.ObtePM;
+                        marksvm.Optional1TM = item.Optional1TM;
+                        decimal FullMarks = Convert.ToDecimal(0);
+                        if (item.HasPractical1)
+                        {
+                            marksvm.Optional1PM = item.Optional1PM;
+                            marksvm.Optional1AM = item.Optional1TM + item.Optional1PM;
+                            int practicalMark = db.OptionalSubjects.Include(m => m.Subject).FirstOrDefault(m => m.SchoolId == marksheet.SchoolId).Subject.PFullMarks.Value;
+                            int theoryMark = db.OptionalSubjects.Include(m => m.Subject).FirstOrDefault(m => m.SchoolId == marksheet.SchoolId).Subject.TFullMarks;
+                            FullMarks = FullMarks + practicalMark + FullMarks;
+                        }
+                        else {
+                            marksvm.Optional1PM = 0;
+                            marksvm.Optional1AM = item.Optional1TM;
+                            int theoryMark = db.OptionalSubjects.Include(m => m.Subject).FirstOrDefault(m => m.SchoolId == marksheet.SchoolId).Subject.TFullMarks;
+                            FullMarks = FullMarks + theoryMark;
+
+                        }
+                        marksvm.OptionalSubject = db.OptionalSubjects.Include(m => m.Subject).FirstOrDefault(m => m.SchoolId == marksheet.SchoolId).Subject.SubName;
+
+                        marksvm.GPA = (Convert.ToDecimal(findGradePoint(marksvm.NepaliAM, 100)) +
+                                        Convert.ToDecimal(findGradePoint(marksvm.EnglishAM, 100)) +
+                                        Convert.ToDecimal(findGradePoint(marksvm.MathTM, 100)) +
+                                        Convert.ToDecimal(findGradePoint(marksvm.ScienceAM, 100)) +
+                                        Convert.ToDecimal(findGradePoint(marksvm.SocialAM, 100)) +
+                                        Convert.ToDecimal(findGradePoint(marksvm.HealthAM, 50)) +
+                                        Convert.ToDecimal(findGradePoint(marksvm.MoralAM, 50)) +
+                                        Convert.ToDecimal(findGradePoint(marksvm.ObteAM, 100)) +
+                                        Convert.ToDecimal(findGradePoint(marksvm.Optional1AM, FullMarks))) / 9;
+
+
+                        lstGrade.Add(marksvm);
+
+                    }
+                  
+
+                }
+                return lstGrade;
+
+            }
+            return null;
+
+        }
 
 
         public List<GradeVM> GetGradeVM(int SchoolId, int ActiveYearId, string Terminal)
         {
             if (db.Marksheets.Any(m => m.SchoolId == SchoolId && m.AcedamicYearId == ActiveYearId && m.Term == Terminal))
             {
-                IEnumerable<Models.Marksheet> marksheets = db.Marksheets.Include(m=>m.Student).Include(m=>m.Student.School).Include(m=>m.AcademicYear).Where(m => m.SchoolId == SchoolId && m.AcedamicYearId == ActiveYearId && m.Term == Terminal);
+                IEnumerable<Models.Marksheet> marksheets = db.Marksheets.Include(m => m.Student).Include(m => m.Student.School).Include(m => m.AcademicYear).Where(m => m.SchoolId == SchoolId && m.AcedamicYearId == ActiveYearId && m.Term == Terminal);
                 List<GradeVM> lstGrade = new List<GradeVM>();
 
                 foreach (var item in marksheets)
@@ -1041,6 +1182,7 @@ namespace Marksheet.Controllers
                         marksvm.StudentName = item.Student.StudentName;
                         marksvm.TerminalExam = marksheet.Term;
                         marksvm.DOB = item.Student.DOB.ToString("yyyy-MM-dd");
+                        marksvm.DOBNep = "";
                         marksvm.RollNo = "";
                         marksvm.SchoolName = item.Student.School.SchoolName;
                         marksvm.SchoolAddress = item.Student.School.Municipality;
@@ -1062,74 +1204,81 @@ namespace Marksheet.Controllers
                             switch (caseSwitch)
                             {
                                 case "English":
-                                    objSubj.SerialNo = "01";
+                                    objSubj.SerialNo = "2";
+                                    objSubj.Serial = 2;
                                     objSubj.SubjectName = subitem;
                                     objSubj.Theory = findGrade(marksheet.EnglishTM, 75);
                                     objSubj.Practical = findGrade(marksheet.EnglishPM, 25);
                                     objSubj.Remarks = "";
                                     objSubj.FinalGrade = findGrade((marksheet.EnglishPM + marksheet.EnglishTM), 100);
-                                    objSubj.GradePoint = findGradePoint((marksheet.EnglishPM + marksheet.EnglishTM),100);
+                                    objSubj.GradePoint = findGradePoint((marksheet.EnglishPM + marksheet.EnglishTM), 100);
                                     lstSubject.Add(objSubj);
 
                                     break;
                                 case "Nepali":
-                                    objSubj.SerialNo = "02";
+                                    objSubj.SerialNo = "1";
+                                    objSubj.Serial = 1;
                                     objSubj.SubjectName = subitem;
                                     objSubj.Theory = findGrade(marksheet.NepaliTM, 75);
                                     objSubj.Practical = findGrade(marksheet.NepaliPM, 25);
                                     objSubj.Remarks = "";
                                     objSubj.FinalGrade = findGrade((marksheet.NepaliTM + marksheet.NepaliPM), 100);
-                                    objSubj.GradePoint = findGradePoint((marksheet.NepaliTM + marksheet.NepaliPM),100);
+                                    objSubj.GradePoint = findGradePoint((marksheet.NepaliTM + marksheet.NepaliPM), 100);
                                     lstSubject.Add(objSubj);
 
                                     break;
                                 case "Mathematics":
-                                    objSubj.SerialNo = "03";
+                                    objSubj.SerialNo = "3";
+                                    objSubj.Serial = 3;
                                     objSubj.SubjectName = subitem;
                                     objSubj.Theory = findGrade(marksheet.MathTM, 100);
                                     objSubj.Practical = "";
                                     objSubj.Remarks = "";
                                     objSubj.FinalGrade = findGrade((marksheet.MathTM), 100);
-                                    objSubj.GradePoint = findGradePoint(marksheet.MathTM,100);
+                                    objSubj.GradePoint = findGradePoint(marksheet.MathTM, 100);
                                     lstSubject.Add(objSubj);
 
                                     break;
                                 case "Science":
-                                    objSubj.SerialNo = "04";
-                                    objSubj.SubjectName = subitem;
+                                    objSubj.SerialNo = "4";
+                                    objSubj.Serial = 4;
+                                    objSubj.SubjectName = "Science and Environment Education";
                                     objSubj.Theory = findGrade(marksheet.ScienceTM, 75);
                                     objSubj.Practical = findGrade(marksheet.SciencePM, 25);
                                     objSubj.Remarks = "";
                                     objSubj.FinalGrade = findGrade((marksheet.SciencePM + marksheet.ScienceTM), 100);
-                                    objSubj.GradePoint = findGradePoint((marksheet.ScienceTM + marksheet.SciencePM),100);
+                                    objSubj.GradePoint = findGradePoint((marksheet.ScienceTM + marksheet.SciencePM), 100);
                                     lstSubject.Add(objSubj);
 
                                     break;
                                 case "Social Studies":
-                                    objSubj.SerialNo = "05";
-                                    objSubj.SubjectName = subitem;
+                                    objSubj.SerialNo = "5";
+                                    objSubj.Serial = 5;
+                                    objSubj.SubjectName = "Social Studies and Population Education";
                                     objSubj.Theory = findGrade(marksheet.SocialTM, 75);
                                     objSubj.Practical = findGrade(marksheet.SocialPM, 25);
                                     objSubj.Remarks = "";
                                     objSubj.FinalGrade = findGrade((marksheet.SocialTM + marksheet.SocialPM), 100);
-                                    objSubj.GradePoint = findGradePoint((marksheet.SocialTM + marksheet.SocialPM),100);
+                                    objSubj.GradePoint = findGradePoint((marksheet.SocialTM + marksheet.SocialPM), 100);
                                     lstSubject.Add(objSubj);
 
                                     break;
                                 case "Health":
-                                    objSubj.SerialNo = "06";
-                                    objSubj.SubjectName = "Health, Pop & Env Edu";
+                                    objSubj.SerialNo = "6";
+                                    objSubj.Serial = 6;
+                                    objSubj.SubjectName = "Health and Physical Education";
                                     objSubj.Theory = findGrade(marksheet.HealthTM, 30);
                                     objSubj.Practical = findGrade(marksheet.HealthPM, 20);
                                     objSubj.Remarks = "";
                                     objSubj.FinalGrade = findGrade((marksheet.HealthPM + marksheet.HealthTM), 50);
-                                    objSubj.GradePoint = findGradePoint((marksheet.HealthPM + marksheet.HealthTM),50);
+                                    objSubj.GradePoint = findGradePoint((marksheet.HealthPM + marksheet.HealthTM), 50);
                                     lstSubject.Add(objSubj);
 
                                     break;
                                 case "OBTE":
-                                    objSubj.SerialNo = "07";
-                                    objSubj.SubjectName = subitem;
+                                    objSubj.SerialNo = "8";
+                                    objSubj.Serial = 8;
+                                    objSubj.SubjectName = "Occupation,Business and Technology";
                                     objSubj.Theory = findGrade(marksheet.ObteTM, 50);
                                     objSubj.Practical = findGrade(marksheet.ObtePM, 50);
                                     objSubj.Remarks = "";
@@ -1138,8 +1287,9 @@ namespace Marksheet.Controllers
                                     lstSubject.Add(objSubj);
                                     break;
                                 case "Moral":
-                                    objSubj.SerialNo = "08";
-                                    objSubj.SubjectName = subitem;
+                                    objSubj.SerialNo = "7";
+                                    objSubj.Serial = 7;
+                                    objSubj.SubjectName = "Moral Science";
                                     objSubj.Theory = findGrade(marksheet.MoralTM, 25);
                                     objSubj.Practical = findGrade(marksheet.MoralPM, 25);
                                     objSubj.Remarks = "";
@@ -1150,17 +1300,18 @@ namespace Marksheet.Controllers
                                     break;
                                 case "Optional1":
                                     bool haspractical = item.HasPractical1;// db.OptionalSubjects.Include(m => m.Subject).FirstOrDefault(m => m.SchoolId == marksheet.SchoolId).Subject.HasPractical;
-                                    objSubj.SerialNo = "09";
-                                    objSubj.SubjectName = db.OptionalSubjects.Include(m => m.Subject).FirstOrDefault(m => m.SchoolId ==marksheet.SchoolId ).Subject.SubName;
+                                    objSubj.SerialNo = "9";
+                                    objSubj.Serial = 9;
+                                    objSubj.SubjectName = db.OptionalSubjects.Include(m => m.Subject).FirstOrDefault(m => m.SchoolId == marksheet.SchoolId).Subject.SubName;
                                     objSubj.CreditHour = "4";
                                     objSubj.Remarks = "";
                                     if (haspractical)
                                     {
-                                        int practicalMark =  db.OptionalSubjects.Include(m => m.Subject).FirstOrDefault(m => m.SchoolId == marksheet.SchoolId).Subject.PFullMarks.Value;
+                                        int practicalMark = db.OptionalSubjects.Include(m => m.Subject).FirstOrDefault(m => m.SchoolId == marksheet.SchoolId).Subject.PFullMarks.Value;
                                         int theoryMark = db.OptionalSubjects.Include(m => m.Subject).FirstOrDefault(m => m.SchoolId == marksheet.SchoolId).Subject.TFullMarks;
                                         objSubj.Practical = findGrade(marksheet.Optional1PM, practicalMark);
                                         objSubj.Theory = findGrade(marksheet.Optional1TM, (theoryMark));
-                                        objSubj.FinalGrade = findGrade(marksheet.Optional1PM + marksheet.Optional1TM, (practicalMark+theoryMark));
+                                        objSubj.FinalGrade = findGrade(marksheet.Optional1PM + marksheet.Optional1TM, (practicalMark + theoryMark));
                                         objSubj.GradePoint = findGradePoint((marksheet.Optional1PM + marksheet.Optional1TM), (practicalMark + theoryMark));
 
                                     }
@@ -1170,12 +1321,12 @@ namespace Marksheet.Controllers
                                         objSubj.Practical = "";
                                         objSubj.Theory = findGrade(marksheet.Optional1TM, (theoryMark));
                                         objSubj.FinalGrade = findGrade(marksheet.Optional1TM, theoryMark);
-                                        objSubj.GradePoint = findGradePoint(marksheet.Optional1TM,theoryMark);
+                                        objSubj.GradePoint = findGradePoint(marksheet.Optional1TM, theoryMark);
                                     }
                                     lstSubject.Add(objSubj);
 
                                     break;
-                               
+
                                 default:
 
                                     break;
