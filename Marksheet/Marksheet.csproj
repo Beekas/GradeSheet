@@ -193,7 +193,9 @@
     <Compile Include="Models\AcademicYear.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\ActiveDays.cs" />
+    <Compile Include="Models\ADTOBS.cs" />
     <Compile Include="Models\Marksheet.cs" />
+    <Compile Include="Models\NepDate.cs" />
     <Compile Include="Models\OptionalSubject.cs" />
     <Compile Include="Models\School.cs" />
     <Compile Include="Models\Student.cs" />
@@ -1844,6 +1846,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\schoollogo.jpg" />
     <Content Include="Images\1.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

@@ -1,0 +1,268 @@
+﻿@model Marksheet.Models.Marksheet
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="card mb-4 col-md-8">
+    <div class="card-header py-3">
+        <h3 class="m-1 font-weight-bold center text-primary">Student Marks Detail</h3>
+    </div>
+
+    <div style="padding-top:10px;">
+        <table class="table table-bordered" id="myTable">
+            <tr>
+                <th>
+                    Student Name
+                </th>
+                <td>
+
+
+                    @Html.DisplayFor(model => model.Student.StudentName)
+                </td>
+            </tr>
+            <tr>
+
+
+
+                <th>
+                    School
+                </th>
+                <td>
+
+
+                    @Html.DisplayFor(model => model.Student.School.SchoolName)
+                </td>
+            </tr>
+            <tr>
+
+
+
+                <th>
+                    Academic Year
+                </th>
+                <td>
+
+
+                    @Html.DisplayFor(model => model.AcademicYear.Year)
+                </td>
+            </tr>
+            <tr>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Term)
+                </th>
+                <td>
+
+
+                    @Html.DisplayFor(model => model.Term)
+                </td>
+            </tr>
+            <tr>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Attendance)
+                </th>
+                <td>
+
+
+                    @Html.DisplayFor(model => model.Attendance)
+                </td>
+            </tr>
+            <tr>
+
+                <th>
+                    English Practical
+                </th>
+                <td>
+
+
+                    @Html.DisplayFor(model => model.EnglishPM)
+                </td>
+            </tr>
+            <tr>
+
+                <th>
+                    English Theory
+                </th>
+                <td>
+
+
+                    @Html.DisplayFor(model => model.EnglishTM)
+                </td>
+            </tr>
+            <tr>
+
+                <th>
+                    Nepali theory
+                </th>
+                <td>
+
+
+                    @Html.DisplayFor(model => model.NepaliTM)
+                </td>
+            </tr>
+            <tr>
+
+                <th>
+                    Nepali Practical
+                </th>
+                <td>
+
+                    @Html.DisplayFor(model => model.NepaliPM)
+                </td>
+            </tr>
+            <tr>
+
+                <th>
+                    Math
+                </th>
+                <td>
+
+
+                    @Html.DisplayFor(model => model.MathTM)
+                </td>
+            </tr>
+            <tr>
+
+                <th>
+                    Social Theory
+                </th>
+                <td>
+
+
+                    @Html.DisplayFor(model => model.SocialTM)
+                </td>
+            </tr>
+            <tr>
+
+                <th>
+                    Social Practical
+                </th>
+                <td>
+
+
+                    @Html.DisplayFor(model => model.SocialPM)
+                </td>
+            </tr>
+            <tr>
+
+                <th>
+                    Health Practical
+                </th>
+                <td>
+
+
+                    @Html.DisplayFor(model => model.HealthPM)
+                </td>
+            </tr>
+            <tr>
+
+                <th>
+                    Health Theory
+                </th>
+                <td>
+
+
+                    @Html.DisplayFor(model => model.HealthTM)
+                </td>
+            </tr>
+            <tr>
+
+                <th>
+                    Science Practical
+                </th>
+                <td>
+
+
+                    @Html.DisplayFor(model => model.SciencePM)
+                </td>
+            </tr>
+            <tr>
+
+                <th>
+                    Science Theory
+                </th>
+                <td>
+
+
+                    @Html.DisplayFor(model => model.ScienceTM)
+                </td>
+            </tr>
+            <tr>
+
+                <th>
+                    OBTE Practical
+                </th>
+                <td>
+
+                    @Html.DisplayFor(model => model.ObtePM)
+                </td>
+            </tr>
+            <tr>
+
+                <th>
+                    OBTE Theory
+                </th>
+                <td>
+
+
+                    @Html.DisplayFor(model => model.ObteTM)
+                </td>
+            </tr>
+            <tr>
+
+                <th>
+                    Moral Theory
+                </th>
+                <td>
+
+
+                    @Html.DisplayFor(model => model.MoralTM)
+                </td>
+            </tr>
+            <tr>
+
+                <th>
+                    Moral Practical
+                </th>
+                <td>
+
+
+                    @Html.DisplayFor(model => model.MoralPM)
+                </td>
+            </tr>
+            <tr>
+
+                <th>
+                    Optional Theory
+                </th>
+                <td>
+
+
+                    @Html.DisplayFor(model => model.Optional1TM)
+                </td>
+            </tr>
+            <tr>
+
+                <th>
+                    Optional Practical
+                </th>
+                <td>
+
+
+                    @Html.DisplayFor(model => model.Optional1PM)
+                </td>
+            </tr>
+            <tr>
+
+
+
+        </table>
+    </div>
+    <p>
+
+        @Html.ActionLink("Back to List", "Index", new { }, new { @class = "btn btn-primary" })
+    </p>
+</div>
+

@@ -1089,9 +1089,7 @@ namespace Marksheet.Controllers
                         marksvm.SchoolName = item.Student.School.SchoolName;
                         marksvm.SchoolCodeNo = item.Student.School.SchoolCodeNo;
                         marksvm.AcademicYear = marksheet.AcademicYear.Year;
-                        marksvm.Logo = "/images/" + item.SchoolId.ToString() + ".jpg";
-
-
+                        marksvm.Logo = "/images/schoollogo.jpg";
                         marksvm.StudentName = item.Student.StudentName;
                         marksvm.DOB = item.Student.DOB.ToString("yyyy-MM-dd");
                         marksvm.SymbolNo = item.Student.SymbolNo;
@@ -1127,7 +1125,8 @@ namespace Marksheet.Controllers
                             int theoryMark = db.OptionalSubjects.Include(m => m.Subject).FirstOrDefault(m => m.SchoolId == marksheet.SchoolId).Subject.TFullMarks;
                             FullMarks = FullMarks + practicalMark + FullMarks;
                         }
-                        else {
+                        else
+                        {
                             marksvm.Optional1PM = 0;
                             marksvm.Optional1AM = item.Optional1TM;
                             int theoryMark = db.OptionalSubjects.Include(m => m.Subject).FirstOrDefault(m => m.SchoolId == marksheet.SchoolId).Subject.TFullMarks;
@@ -1150,7 +1149,7 @@ namespace Marksheet.Controllers
                         lstGrade.Add(marksvm);
 
                     }
-                  
+
 
                 }
                 return lstGrade;
@@ -1163,6 +1162,7 @@ namespace Marksheet.Controllers
 
         public List<GradeVM> GetGradeVM(int SchoolId, int ActiveYearId, string Terminal)
         {
+
             if (db.Marksheets.Any(m => m.SchoolId == SchoolId && m.AcedamicYearId == ActiveYearId && m.Term == Terminal))
             {
                 IEnumerable<Models.Marksheet> marksheets = db.Marksheets.Include(m => m.Student).Include(m => m.Student.School).Include(m => m.AcademicYear).Where(m => m.SchoolId == SchoolId && m.AcedamicYearId == ActiveYearId && m.Term == Terminal);
@@ -1182,8 +1182,13 @@ namespace Marksheet.Controllers
                         marksvm.StudentName = item.Student.StudentName;
                         marksvm.TerminalExam = marksheet.Term;
                         marksvm.DOB = item.Student.DOB.ToString("yyyy-MM-dd");
-                        marksvm.DOBNep = "";
-                        marksvm.RollNo = "";
+                        NepDate nepaliDate = new NepDate();
+                        nepaliDate = ADTOBS.EngToNep(item.Student.DOB);
+                        if (nepaliDate != null)
+                            marksvm.DOBNep = nepaliDate.Year.ToString() + "-" + nepaliDate.Month.ToString() + "-" + nepaliDate.Day.ToString();
+                        else
+                            marksvm.DOBNep = "";
+                            marksvm.RollNo = item.Student.SymbolNo;
                         marksvm.SchoolName = item.Student.School.SchoolName;
                         marksvm.SchoolAddress = item.Student.School.Municipality;
 
@@ -1193,7 +1198,7 @@ namespace Marksheet.Controllers
                         marksvm.PresentDay = marksheet.Attendance.ToString();
                         marksvm.AcademicYear = marksheet.AcademicYear.Year;
                         marksvm.AcademicDay = activeDays;
-                        marksvm.Logo = "/images/" + item.SchoolId.ToString() + ".jpg";
+                        marksvm.Logo = "/images/schoollogo.jpg";
 
                         foreach (string subitem in Subjects)
                         {

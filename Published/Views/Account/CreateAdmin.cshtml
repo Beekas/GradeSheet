@@ -1,0 +1,161 @@
+﻿@model Marksheet.Models.Account
+
+@{
+    ViewBag.Title = "CreateAdmin";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+    <style>
+        fieldset {
+            display: block;
+            margin-left: 2px;
+            margin-right: 2px;
+            padding-top: 0.35em;
+            padding-bottom: 0.625em;
+            padding-left: 0.75em;
+            padding-right: 0.75em;
+            border: 2px solid black;
+        }
+
+        legend {
+            width: auto;
+            border: 1.5px solid black;
+        }
+    </style>
+}
+
+<div class="card">
+    <div class="card-header py-3">
+        <h3 class="m-1 font-weight-bold center text-primary">Account</h3>
+    </div>
+    <div class="card-body">
+
+
+        @using (Html.BeginForm("CreateAdmin", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+
+            @Html.AntiForgeryToken()
+
+
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
+                        @Html.TextBoxFor(model => model.FullName, new { id = "txtFullName", @class = "form-control", name = "FullName", value = "" })
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Email</label>
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        @Html.TextBoxFor(model => model.Email, new { id = "txtEmail", @class = "form-control", name = "Email", value = "" })
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>
+                           Username
+                        </label>
+                        @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+
+                        @Html.TextBoxFor(model => model.UserName, new { id = "txtUserName", @class = "form-control" })
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Password</label>
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+
+                        @Html.PasswordFor(model => model.Password, new { id = "txtPassword", @class = "form-control" })
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Phone No</label>
+                        @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+
+                        @Html.TextBoxFor(model => model.Phone, "", new { id = "txtPhone", @class = "form-control" })
+
+                    </div>
+                </div>
+
+                <div class="col-md-6" id="divCategory">
+                    <div class="form-group">
+                        <label>Category</label>
+                        @Html.ValidationMessageFor(model => model.Category, "", new { @class = "text-danger" })
+
+
+                        @Html.DropDownList("Category", new List<SelectListItem>() { new SelectListItem() { Text = "--Select Category--", Value = "" }, new SelectListItem() { Text = "Super Admin", Value = "SuperAdmin" }, new SelectListItem() { Text = "Admin", Value = "Admin" }}, new { @class = "form-control", id = "ddlCategory" })
+                        `
+                    </div>
+                </div>
+                @*<div class="col-md-3" id="divBranch">
+                        <div class="form-group">
+                            <label>साखा आइडी</label>
+                           @Html.ValidationMessageFor(model => model.BranchId, "", new { @class = "text-danger" })
+
+                            @Html.DropDownList("BranchId", null, "---Select Branch---", htmlAttributes: new { @class = "form-control" })
+
+                        </div>
+                    </div>*@
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>
+                           work No
+                        </label>
+                        @Html.ValidationMessageFor(model => model.WorkPhone)
+
+                        @Html.TextBoxFor(model => model.WorkPhone, new { @class = "form-control" })
+
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.URL)  @Html.ValidationMessageFor(model => model.URL)
+
+                        @Html.TextBoxFor(model => model.URL, new { @class = "form-control" })
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Image</label>
+                        @Html.ValidationMessageFor(model => model.PPSizePhoto)
+
+                        <input type="file" name="ImageFile" id="ImageFile" onchange="readURL(this);" class="form-control" />
+                        <img id="blah" src="#" alt="your image" />
+                    </div>
+                </div>
+
+
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label>
+                            Status
+                        </label>
+                        @Html.ValidationMessageFor(model => model.Status)
+
+                        &nbsp;
+                        @Html.CheckBoxFor(model => model.Status, new { style = "width: 20px; height: 20px;", @class = "form-control" })
+
+                    </div>
+                </div>
+
+
+                <div class="col-md-12" style="text-align:center; padding-top:15px;">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </div>
+
+
+        }
+    </div>
+</div>
+
+
+

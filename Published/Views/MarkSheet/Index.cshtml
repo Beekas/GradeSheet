@@ -1,0 +1,121 @@
+﻿@model IEnumerable<Marksheet.Models.Marksheet>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="card">
+    <div class="card-header py-3">
+        <h3 class="m-1 font-weight-bold center text-primary">View Result</h3>
+    </div>
+    <div class="card-body">
+
+        <div class="col-md-12">
+            @if (TempData["ErrorMessage"] != null)
+            {
+                <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+            }
+
+            @if (TempData["Message"] != null)
+            {
+                <div class="alert alert-success">@TempData["Message"]</div>
+            }
+
+        </div>
+        @*<p>
+            @Html.ActionLink("MarkSheet Entry", "SelectSchool",new { }, new{ @class = "btn btn-info" }) @Html.ActionLink("MarkSheet Edit", "SelectSchoolEdit", new { }, new { @class = "btn btn-info" })
+            @Html.ActionLink("MarkSheet Print", "SelectSchoolPrint", new { }, new { @class = "btn btn-info" })
+        </p>*@
+
+        <table class="table table-bordered" id="myTable">
+            <thead>
+                <tr>
+                    <th>
+                        Student Name
+                    </th>
+                    <th>
+                        School
+                    </th>
+
+                    <th>
+                        Academic Year
+                    </th>
+                    <th>
+                        Terminal
+                    </th>
+                    
+                    <th>
+                        Symbol No
+                    </th>
+                    <th style="width:160px;"></th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Student.StudentName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Student.School.SchoolName)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AcademicYear.Year)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Term)
+                    </td>
+                    
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Student.SymbolNo)
+                    </td>
+
+
+                    <td>
+                        @Html.ActionLink("Details", "Details", new { id = item.Id},new { @class="btn-sm btn btn-success"}) |
+                        @*@Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id })*@
+                        @Html.ActionLink("Grade Sheet", "viewgradesheet", new { id = item.Id }, new { @class = "btn-sm btn btn-info" })
+                        @*@Html.ActionLink("Grade Sheet", "viewgradesheet", new { id = item.Id })*@
+                    </td>
+                </tr>
+                }
+            </tbody>
+
+        </table>
+
+    </div>
+</div>
+
+
+
+
+@section Scripts {
+
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $("body div.myTable input");
+            var dataSrc = [];
+
+            var table = $("#myTable").DataTable({
+                "columnDefs": [
+                    { "orderable": false, "targets": 3 }
+
+                ],
+                "pageLength": 50,
+
+
+            });
+        });
+
+
+
+
+    </script>
+}

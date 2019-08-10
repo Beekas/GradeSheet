@@ -1,0 +1,180 @@
+﻿@model Marksheet.ViewModels.MarksVM
+@{
+
+    ViewBag.Title = "MarkSheet";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<style>
+    #tbl {
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 12px;
+    }
+
+        #tbl td, #tbl th {
+            border: 1px solid black;
+            padding: 1px;
+        }
+
+    .alignleft {
+        float: left;
+        text-align: left;
+        width: 50%;
+    }
+
+    .alignright {
+        float: right;
+        text-align: left;
+        width: 50%;
+    }
+</style>
+
+<div class="row" id="printDiv" style="font-size:12px;width:595px;">
+    <div class="first">
+        <div class="childFirst">
+            <div style="width:100%;text-align:center;"><b>GradeSheet</b><br /><b>@Model.SchoolName</b><br />@Model.SchoolAddress<br />@Model.TerminalExam Terminal</div>
+            <div style="width:100%;">
+                <div class="alignleft"><b>Name:</b> @Model.StudentName</div><div class="alignright"><b>DOB:</b>@Model.DOB</div><br />
+                <div class="alignleft"><b>Roll No:</b> @Model.StudentName</div><div class="alignright"><b>Class:</b>8</div><br />
+            </div>
+        </div>
+    </div>
+    <div class="second">
+        <table id="tbl" style="height:300px">
+            <tr>
+                <th rowspan="2">S.No</th>
+                <th rowspan="2">Subjects</th>
+                <th rowspan="2">Full Marks</th>
+                <th rowspan="2">Pass Marks</th>
+                <th colspan="2">Obtined Marks</th>
+                <th rowspan="2">Total</th>
+                <th rowspan="2">Grace Marks</th>
+                <th rowspan="2">Remarks</th>
+
+            </tr>
+            <tr>
+                <th>TH</th>
+                <th>PR</th>
+            </tr>
+            @foreach (var item in Model.Subjects)
+            {
+                <tr>
+                    <td>@item.SerialNo</td>
+                    <td>@item.SubjectName</td>
+                    <td style="text-align:center;">@item.FullMarks</td>
+                    <td style="text-align:center;">@item.PassMarks</td>
+                    <td style="text-align:center;">@item.Theory</td>
+                    <td style="text-align:center;">@item.Practical</td>
+                    <td style="text-align:center;">@item.Total</td>
+                    <td></td>
+                    <td>@item.Remarks</td>
+                </tr>
+            }
+
+            <tr>
+                <td colspan="9">
+                    Grand Total : @Model.GrandTotal
+                    Result: @Model.Division
+                </td>
+
+            </tr>
+
+
+        </table>
+    </div>
+    <div class="third">
+
+
+    </div>
+</div>
+<br />
+<div class="col-md-12" style="padding-left:200px;">
+
+    <input type="submit" class="btn btn-primary" id="btnPrint" value="Print" />
+
+</div>
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jquery.ui")
+    @Styles.Render("~/Content/css/jquery.ui")
+
+    <script language="javascript">
+        $(document).ready(function () {
+
+            $("#btnPrint").click(function (e) {
+                var html = "";
+                html = formatHtml();
+                PrintElem(html);
+
+            });
+        });
+        function formatHtml() {
+            var $divBox1 = $("#printDiv").find("div.first");
+            var $divBox2 = $("#printDiv").find("div.second");
+            var $divBox3 = $("#printDiv").find("div.third");
+            var html = "";
+            var pageHead = "<div class='page'>";
+            var pageBottom = "</div>";
+            html = html + pageHead;
+            html = html + "<div id='one'>" + $divBox1.html() + "</div>";
+            html = html + "<div id='two'>" + $divBox2.html() + "</div>";
+            html = html + "<div id='three'>" + $divBox3.html() + "</div>";
+            html = html + pageBottom;
+            return html;
+        }
+
+
+        function PrintElem(ele) {
+            var mywindow = window.open('', 'PRINT');
+
+            mywindow.document.write('<html><head><style>' +
+                'body {font-size:20px;} div.childFirst{height:100%;}'
+                +
+                'table#tbl {height:100%;border-collapse: collapse !important;width: 100%;}#tbl td, #tbl th {border: 1px solid black !important;padding: 1px !important;} .alignleft {float: left;text-align: left;width: 33.33333%;}.aligncenter {float: left;text-align: center;width: 33.33333%;}.alignright {float: right;text-align: left;width: 33.33333%;}' +
+                '.page{page-break-after:always;width:100%;padding-right:5px;padding-left:5px;height:842px;}' +
+                'div#one{padding:3px;width:98%;height:250px;float: left;}'
+                + 'div#two{padding:3px;width:98%;height:342px;float: left;}' +
+                'div#three{padding:3px;width:98%;height:250px;float: left;}' +
+                '</style><title>MarkSheet</title>');
+
+            mywindow.document.write('</head><body >');
+            mywindow.document.write(ele);
+            mywindow.document.write('</body></html>');
+
+            mywindow.document.close();
+            mywindow.focus();
+
+            mywindow.print();
+            mywindow.close();
+
+            return true;
+        }
+
+
+
+
+
+
+                    //function PrintElem(elem) {
+                    //    var mywindow = window.open('', 'PRINT', 'height=842,width=595');
+
+                    //    mywindow.document.write('<html><head><style>body {font-size:12px;}#tbl {border-collapse: collapse !important;width: 100%;font-size: 12px;}#tbl td, #tbl th {border: 1px solid black !important;padding: 1px !important;} .alignleft {float: left;text-align: left;width: 33.33333%;}.aligncenter {float: left;text-align: center;width: 33.33333%;}.alignright {float: right;text-align: right;width: 33.33333%;}</style><title></title>');
+                    //    mywindow.document.write('</head><body >');
+                    //    //mywindow.document.write('<h1>' + document.title  + '</h1>');
+                    //    mywindow.document.write(document.getElementById(elem).innerHTML);
+                    //    mywindow.document.write('</body></html>');
+
+                    //    mywindow.document.close(); // necessary for IE >= 10
+                    //    mywindow.focus(); // necessary for IE >= 10*/
+
+                    //    mywindow.print();
+                    //    mywindow.close();
+
+                    //    return true;
+                    //}
+
+              //  });
+    </script>
+}

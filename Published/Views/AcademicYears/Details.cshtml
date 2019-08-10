@@ -1,0 +1,56 @@
+﻿@model Marksheet.Models.AcademicYear
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+
+<div class="card mb-4 col-md-8">
+    <div class="card-header py-3">
+        <h3 class="m-1 font-weight-bold center text-primary">Academic Year</h3>
+    </div>
+
+    <div style="padding-top:10px;">
+        <table class="table table-bordered" id="myTable">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.FiscalYear)
+                </th>
+                <td>
+
+
+                    @Html.DisplayFor(model => model.FiscalYear)
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Year)
+                </th>
+                <td>
+
+
+                    @Html.DisplayFor(model => model.Year)
+                </td>
+            </tr>
+
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ActiveYear)
+                </th>
+                <td>
+
+
+                    @Html.DisplayFor(model => model.ActiveYear)
+                </td>
+            </tr>
+
+        </table>
+    </div>
+    <p>
+      
+        @Html.ActionLink("Back to List", "Index",new { },new { @class="btn btn-primary"})
+    </p>
+</div>
