@@ -5386,10 +5386,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/09/2019 11:21:29</publishTime>
     </File>
     <File Include="bin/Marksheet.dll">
-      <publishTime>08/09/2019 14:58:55</publishTime>
+      <publishTime>08/11/2019 18:56:46</publishTime>
     </File>
     <File Include="bin/Marksheet.pdb">
-      <publishTime>08/09/2019 14:58:55</publishTime>
+      <publishTime>08/11/2019 18:56:46</publishTime>
     </File>
     <File Include="bin/Microsoft.AspNet.Identity.Core.dll">
       <publishTime>08/09/2019 11:21:29</publishTime>
@@ -5678,6 +5678,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Images/1.jpg">
       <publishTime>08/09/2019 11:21:16</publishTime>
+    </File>
+    <File Include="Images/schoollogo.jpg">
+      <publishTime>08/10/2019 06:28:44</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
       <publishTime>08/09/2019 11:21:16</publishTime>
@@ -6304,13 +6307,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/09/2019 11:21:17</publishTime>
     </File>
     <File Include="Views/MarkSheet/ViewGradeSheetSchool.cshtml">
-      <publishTime>08/09/2019 14:40:51</publishTime>
+      <publishTime>08/11/2019 18:56:13</publishTime>
     </File>
     <File Include="Views/MarkSheet/ViewMarkSheet.cshtml">
       <publishTime>08/09/2019 11:21:17</publishTime>
     </File>
     <File Include="Views/MarkSheet/ViewMarkSheetSchool.cshtml">
-      <publishTime>08/09/2019 14:48:55</publishTime>
+      <publishTime>08/11/2019 18:54:37</publishTime>
     </File>
     <File Include="Views/OptionalSubjects/Create.cshtml">
       <publishTime>08/09/2019 11:21:18</publishTime>
@@ -6412,13 +6415,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>08/09/2019 11:21:18</publishTime>
     </File>
     <File Include="Views/Web.config">
-      <publishTime>08/09/2019 11:21:18</publishTime>
+      <publishTime>08/11/2019 18:32:45</publishTime>
     </File>
     <File Include="Views/_ViewStart.cshtml">
       <publishTime>08/09/2019 11:21:18</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>08/09/2019 14:58:58</publishTime>
+      <publishTime>08/11/2019 18:56:48</publishTime>
     </File>
   </ItemGroup>
 </Project>

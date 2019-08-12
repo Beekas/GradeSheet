@@ -67,18 +67,19 @@
                             <div style="width:100%;min-height:3cm;">
                                 <div style="width:10%;text-align:center;float:left;">
                                     <img style="max-height:100%;max-width:100%;" src="@Model[0].Logo" onerror="this.style.display='none'" />
+                                    @*image location images/schoollogo.jpg*@
                                 </div>
                                 <div style="width:90%;text-align:center;float:left;">
                                     <b style="font-size:15px;">Siddheshwor Metropolitan/Sub-Metropolitan/Municipatility/Rural Municipatility</b><br />
-                                    <b style="font-size:15px;">Basic Education Examination Committee </b><br /><br />
+                                    <b style="font-size:15px;">Basic Education Examination Committee </b><br /><b style="font-size:15px;"   >@Model[0].AcademicYear</b><br />
 
-                                    <b style="font-size:15px;">BASIC EDUCATION CERTIFICATE(Grade-8)EXAMINATION @Model[0].AcademicYear</b><br />
+                                    <b style="font-size:15px;">BASIC EDUCATION CERTIFICATE(Grade-8)EXAMINATION </b><br />
                                     <b style="font-size:15px;">GRADE-SHEET</b>
                                 </div>
                             </div>
                             <div style="width:100%;font-size:15px;">
                                 <b> The Grade(s) Secured by</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      @item.StudentName <br />
-                                <b> Date Of Birth </b>    &nbsp;&nbsp;&nbsp;&nbsp;     @(item.DOB + "(in B.S.)")&nbsp;&nbsp;&nbsp; @( item.DOB + "(in AD)") <br />
+                                <b> Date Of Birth </b>    &nbsp;&nbsp;&nbsp;&nbsp;     @(item.DOBNep + "(in B.S.)")&nbsp;&nbsp;&nbsp; @( item.DOB + "(in AD)") <br />
                                 <b>Symbol No</b>   &nbsp;&nbsp;&nbsp;&nbsp;    @item.RollNo<br />
                                 <b> of </b>  &nbsp;&nbsp;&nbsp;&nbsp;     @item.SchoolName&nbsp;&nbsp;&nbsp; <b>School</b><br />
                                 <b> In Basic Education (Grade 8) Examination of</b>     @item.AcademicYear <b>Given Below</b>
@@ -136,14 +137,14 @@
                             </div>
                             <div class="width:30%;">&nbsp;</div>
                         </div>
-                        <div style="width:100%;min-height:20px;">&nbsp;<br /><br /><br /></div>
+                        <div style="width:100%;min-height:20px;">&nbsp;<br /><br /><br /><br /><br /></div>
                         <div style="width:100%;">
                             <div class="alignleft3">
-                                Date of Issue:
+                                <b>.....................<br /> Date of Issue:</b>
                             </div>
-                            <div class="aligncenter3">Written by:</div>
-                            <div class="aligncenter34">Checked by:</div>
-                            <div class="alignright3">Verified by:</div>
+                            <div class="aligncenter3"><b>...................<br />Written by:</b></div>
+                            <div class="aligncenter34"><b>..................<br />Checked by:</b></div>
+                            <div class="alignright3"><b>.................<br />Verified by:</b></div>
 
                         </div>
                     </div>
