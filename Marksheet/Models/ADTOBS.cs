@@ -359,92 +359,92 @@ namespace Marksheet.Models
         }
 
 
-        //public static DateTime NepToEng(NepDate dateTime)
-        //{
-        //    return NepToEng(dateTime.Year, dateTime.Month, dateTime.Day);
-        //}
+        public static DateTime NepToEng(NepDate dateTime)
+        {
+            return NepToEng(dateTime.Year, dateTime.Month, dateTime.Day);
+        }
 
-        //public static DateTime NepToEng(int yy, int mm, int dd)
-        //{
+        public static DateTime NepToEng(int yy, int mm, int dd)
+        {
 
 
-        //    if (bs == null) InitializeData();
-        //    int def_eyy = 1943;
-        //    int def_emm = 4;
-        //    int def_edd = 14 - 1;       // init english date.
-        //    int def_nyy = 2000; int def_nmm = 1; int def_ndd = 1;       // equivalent nepali date.
-        //    int total_eDays = 0; int total_nDays = 0; int a = 0; int day = 4 - 1;       // initializations...
-        //    int m = 0; int y = 0; int i = 0;
-        //    int j = 0;
-        //    int k = 0; int numDay = 0;
+            if (bs == null) InitializeData();
+            int def_eyy = 1943;
+            int def_emm = 4;
+            int def_edd = 14 - 1;       // init english date.
+            int def_nyy = 2000; int def_nmm = 1; int def_ndd = 1;       // equivalent nepali date.
+            int total_eDays = 0; int total_nDays = 0; int a = 0; int day = 4 - 1;       // initializations...
+            int m = 0; int y = 0; int i = 0;
+            int j = 0;
+            int k = 0; int numDay = 0;
 
-        //    int[] month = new int[] { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-        //    int[] lmonth = new int[] { 0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+            int[] month = new int[] { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+            int[] lmonth = new int[] { 0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
-        //    if (IsRangeNep(yy, mm, dd) == false)
-        //    {
-        //        return new DateTime();
+            if (IsRangeNep(yy, mm, dd) == false)
+            {
+                return new DateTime();
 
-        //    }
-        //    else
-        //    {
+            }
+            else
+            {
 
-        //        // count total days in-terms of year
-        //        for (i = 0; i < (yy - def_nyy); i++)
-        //        {
-        //            for (j = 1; j <= 12; j++)
-        //            {
-        //                total_nDays += bs[k][j];
-        //            }
-        //            k++;
-        //        }
+                // count total days in-terms of year
+                for (i = 0; i < (yy - def_nyy); i++)
+                {
+                    for (j = 1; j <= 12; j++)
+                    {
+                        total_nDays += bs[k][j];
+                    }
+                    k++;
+                }
 
-        //        // count total days in-terms of month			
-        //        for (j = 1; j < mm; j++)
-        //        {
-        //            total_nDays += bs[k][j];
-        //        }
+                // count total days in-terms of month			
+                for (j = 1; j < mm; j++)
+                {
+                    total_nDays += bs[k][j];
+                }
 
-        //        // count total days in-terms of dat
-        //        total_nDays += dd;
+                // count total days in-terms of dat
+                total_nDays += dd;
 
-        //        //calculation of equivalent english date...
-        //        total_eDays = def_edd;
-        //        m = def_emm;
-        //        y = def_eyy;
-        //        while (total_nDays != 0)
-        //        {
-        //            if (IsLeaYear(y))
-        //            {
-        //                a = lmonth[m];
-        //            }
-        //            else
-        //            {
-        //                a = month[m];
-        //            }
-        //            total_eDays++;
-        //            day++;
-        //            if (total_eDays > a)
-        //            {
-        //                m++;
-        //                total_eDays = 1;
-        //                if (m > 12)
-        //                {
-        //                    y++;
-        //                    m = 1;
-        //                }
-        //            }
-        //            if (day > 7)
-        //                day = 1;
-        //            total_nDays--;
-        //        }
-        //        numDay = day;
+                //calculation of equivalent english date...
+                total_eDays = def_edd;
+                m = def_emm;
+                y = def_eyy;
+                while (total_nDays != 0)
+                {
+                    //if (IsLeaYear(y))
+                    //{
+                    //    a = lmonth[m];
+                    //}
+                    //else
+                    //{
+                        a = month[m];
+                    //}
+                    total_eDays++;
+                    day++;
+                    if (total_eDays > a)
+                    {
+                        m++;
+                        total_eDays = 1;
+                        if (m > 12)
+                        {
+                            y++;
+                            m = 1;
+                        }
+                    }
+                    if (day > 7)
+                        day = 1;
+                    total_nDays--;
+                }
+                numDay = day;
 
-        //        var date = new DateTime(y, m, total_eDays);
-        //        return date;
+                var date = new DateTime(y, m, total_eDays);
+                return date;
 
-        //    }
-        //}
+            }
+        }
 
     };
 

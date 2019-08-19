@@ -1089,7 +1089,7 @@ namespace Marksheet.Controllers
                         marksvm.SchoolName = item.Student.School.SchoolName;
                         marksvm.SchoolCodeNo = item.Student.School.SchoolCodeNo;
                         marksvm.AcademicYear = marksheet.AcademicYear.Year;
-                        marksvm.Logo = "/images/schoollogo.jpg";
+                        marksvm.Logo = "/images/nepalgov.png";
                         marksvm.StudentName = item.Student.StudentName;
                         marksvm.DOB = item.Student.DOB.ToString("yyyy-MM-dd");
                         marksvm.SymbolNo = item.Student.SymbolNo;
@@ -1181,24 +1181,29 @@ namespace Marksheet.Controllers
                     {
                         marksvm.StudentName = item.Student.StudentName;
                         marksvm.TerminalExam = marksheet.Term;
-                        marksvm.DOB = item.Student.DOB.ToString("yyyy-MM-dd");
+                        marksvm.DOB = item.Student.DOB.ToString("yyyy/MM/dd");
                         NepDate nepaliDate = new NepDate();
                         nepaliDate = ADTOBS.EngToNep(item.Student.DOB);
                         if (nepaliDate != null)
-                            marksvm.DOBNep = nepaliDate.Year.ToString() + "-" + nepaliDate.Month.ToString() + "-" + nepaliDate.Day.ToString();
+                            marksvm.DOBNep = nepaliDate.Year.ToString() + "/" + nepaliDate.Month.ToString() + "/" + nepaliDate.Day.ToString();
                         else
                             marksvm.DOBNep = "";
-                            marksvm.RollNo = item.Student.SymbolNo;
+                        marksvm.RollNo = item.Student.SymbolNo;
                         marksvm.SchoolName = item.Student.School.SchoolName;
                         marksvm.SchoolAddress = item.Student.School.Municipality;
-
+                        
                         marksvm.FatherName = item.Student.FatherName;
                         marksvm.MotherName = item.Student.MotherName;
                         marksvm.StudentAddress = item.Student.Address;
                         marksvm.PresentDay = marksheet.Attendance.ToString();
                         marksvm.AcademicYear = marksheet.AcademicYear.Year;
+                        NepDate ActiveNepali = new NepDate();
+                        ActiveNepali.Year =Convert.ToInt32(marksvm.AcademicYear);
+                        ActiveNepali.Month = 1;
+                        ActiveNepali.Day = 1;
+                        marksvm.AcademicYearEng = ADTOBS.NepToEng(ActiveNepali).Year.ToString();
                         marksvm.AcademicDay = activeDays;
-                        marksvm.Logo = "/images/schoollogo.jpg";
+                        marksvm.Logo = "/images/nepalgov.png";
 
                         foreach (string subitem in Subjects)
                         {
@@ -1341,7 +1346,7 @@ namespace Marksheet.Controllers
                         marksvm.GPA = lstSubject.Sum(m => Decimal.Parse(m.GradePoint) / 9).ToString("0.00");
                         marksvm.AggregateGPA = findAggregate(Convert.ToDecimal(marksvm.GPA));
                         marksvm.Subjects = lstSubject;
-
+                        marksvm.Grade = findGrade(Convert.ToDecimal(marksvm.GPA), 4);
 
 
 

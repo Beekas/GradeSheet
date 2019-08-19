@@ -13,6 +13,7 @@ namespace Marksheet.ViewModels
         public string RollNo { get; set; }
         public string TerminalExam { get; set; }
         public string AcademicYear { get; set; }
+        public string AcademicYearEng { get; set; }
         public string SchoolName { get; set; }
         public string SchoolAddress { get; set; }
         public string StudentAddress { get; set; }
@@ -29,8 +30,9 @@ namespace Marksheet.ViewModels
 
         public string GPA { get; set; }
         public string AggregateGPA { get; set; }
+        public string Grade { get; set; }
 
-        
+
     }
 
         public class SubjectVM {

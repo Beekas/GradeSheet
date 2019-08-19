@@ -70,23 +70,18 @@
                                     @*image location images/schoollogo.jpg*@
                                 </div>
                                 <div style="width:90%;text-align:center;float:left;">
-                                    <b style="font-size:15px;">Siddheshwor Metropolitan/Sub-Metropolitan/Municipatility/Rural Municipatility</b><br />
-                                    <b style="font-size:15px;">Basic Education Examination Committee </b><br /><b style="font-size:15px;"   >@Model[0].AcademicYear</b><br />
-
-                                    <b style="font-size:15px;">BASIC EDUCATION CERTIFICATE(Grade-8)EXAMINATION </b><br />
-                                    <b style="font-size:15px;">GRADE-SHEET</b>
+                                    <b style="font-size:15px;font-weight:600;">Siddhalek Rural Municipatility</b><br />
+                                    <label style="font-size:15px;">Basic Education Examination Committee </label><br />
+                                    <label>Siddhalek, Dhading, 3 No. Province, Nepal</label><br />
+                                    <b style="font-size:15px;">BASIC EDUCATION CERTIFICATE(Grade-8)EXAMINATION-@Model[0].AcademicYear</b><br />
+                                    <b style="font-size:15px;font-weight:600;">GRADE-SHEET</b>
                                 </div>
                             </div>
                             <div style="width:100%;font-size:15px;">
-                                <b> The Grade(s) Secured by</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      @item.StudentName <br />
-                                <b> Date Of Birth </b>    &nbsp;&nbsp;&nbsp;&nbsp;     @(item.DOBNep + "(in B.S.)")&nbsp;&nbsp;&nbsp; @( item.DOB + "(in AD)") <br />
-                                <b>Symbol No</b>   &nbsp;&nbsp;&nbsp;&nbsp;    @item.RollNo<br />
-                                <b> of </b>  &nbsp;&nbsp;&nbsp;&nbsp;     @item.SchoolName&nbsp;&nbsp;&nbsp; <b>School</b><br />
-                                <b> In Basic Education (Grade 8) Examination of</b>     @item.AcademicYear <b>Given Below</b>
-                                @*<div style="width:100%;"><b>NAME OF STUDENT:</b> @item.StudentName</div><div>&nbsp;</div>
-                                    <div class="alignleft"><b>DATE OF BIRTH:</b> @item.DOB</div><div class="alignright"><b>CLASS:</b>8</div><div>&nbsp;</div>
-                                    <div class="alignleft"><b>FATHER'S NAME:</b> @item.FatherName</div><div class="alignright"><b>SYMBOL NO:</b>8</div><div>&nbsp;</div>
-                                    <div class="alignleft"><b>MOTHER'S NAME:</b> @item.MotherName</div><div class="alignright"><b>ADDRESS:</b>@item.StudentAddress</div><div>&nbsp;</div>*@
+                                <b>SYMBOL NO: @item.RollNo</b><br />
+                                The Grades Secured by Mr/Miss <b>@item.StudentName</b>&nbsp;&nbsp; son/daughter of <b>@item.FatherName</b><br />
+                                student of <B>@item.SchoolName.ToUpper()</B><br />
+                                <b>has appeared in the Annual Examination of @Model[0].AcademicYear B.S (@item.AcademicYearEng A.D) and completed Basic Education (Grade 8) Examination.</b>According to school record his/her date of birth is <b>@item.DOBNep</b>
                             </div>
                             <div>&nbsp;<br /></div>
                         </div>
@@ -94,7 +89,7 @@
                     <div class="second">
                         <table id="tbl" style="min-height:13cm;">
                             <tr>
-                                <th rowspan="2">S.No.</th>
+                                <th rowspan="2">S.N.</th>
                                 <th rowspan="2">Subjects</th>
                                 <th rowspan="2">Credit Hour</th>
                                 <th colspan="2">Obtained Grade</th>
@@ -121,37 +116,60 @@
                                     <td>@subitem.Remarks</td>
                                 </tr>
                             }
-                            <tr>
-                                <td colspan="6" style="text-align:center;">GRADE POINT AVERAGE(GPA)</td>
-                                <td style="text-align:center;">@item.GPA</td>
-                                <td style="text-align:center;">@item.AggregateGPA</td>
+                            <tr style="font-weight:bold;">
+                                <td colspan="6" style="text-align:right;">GRADE:</td>
+                                <td colspan="2" style="text-align:left;">@item.Grade</td>
+                            </tr>
+                            <tr style="font-weight:bold;"> 
+                                <td colspan="6" style="text-align:right;">GRADE POINT AVERAGE(GPA):</td>
+                                <td colspan="2" style="text-align:left;">@item.GPA</td>
+
+                            </tr>
+                            <tr style="font-weight:bold;">
+                                <td colspan="6" style="text-align:right;">Result:</td>
+                                <td colspan="2" style="text-align:left;">@item.AggregateGPA</td>
                             </tr>
                         </table>
                     </div>
                     <div>
                         <div>&nbsp;</div>
                         <div style="width:100%;">
+                            <b>
+                                *grading: A+:Outstanding, A:Excellent, B+:Very Good, B:Good, C+:Satisfactory,C:Acceptable,
+                                D+:Partially Acceptable, D:Insufficient, E:Very Insufficient
+                            </b>
+                        </div>
+                        <div style="width:100%;">
                             <div style="float:left;text-align:left; width:70%;">
-                                <b>1. Th : </b>Theory, <b><br />2. Pr :</b>Practical<br />
-                                <b>@("3. @: Absent")</b>
+                                TH : <b>Theory, </b><br />PR :<b>Practical</b><br />
+                                @("@")<b>  Absent</b>
                             </div>
                             <div class="width:30%;">&nbsp;</div>
                         </div>
                         <div style="width:100%;min-height:20px;">&nbsp;<br /><br /><br /><br /><br /></div>
                         <div style="width:100%;">
                             <div class="alignleft3">
-                                <b>.....................<br /> Date of Issue:</b>
+                                <div style="border:1px solid black;min-height:100px;width:200px;"><br />&nbsp;&nbsp; SCHOOL'S
+                                STAMP</div>
                             </div>
-                            <div class="aligncenter3"><b>...................<br />Written by:</b></div>
-                            <div class="aligncenter34"><b>..................<br />Checked by:</b></div>
-                            <div class="alignright3"><b>.................<br />Verified by:</b></div>
+                            <div class="aligncenter3"><b>...............................<br />HEAD TEACHER</b></div>
+                            <div class="aligncenter34"><b>.........................<br />CHECKED BY</b></div>
+                            <div class="alignright3"><b>........................<br />VERIFIED BY</b></div>
+
+                        </div>
+                        <div style="width:100%;">
+                            &nbsp;&#9;
+                        </div>
+                        <div style="width:100%">
+                            <div class="alignleft3">
+                               
+                            </div>
+                            <div class="aligncenter3"> <br /><br /><b>DATE OF ISSUE:</b></div>
+                          
 
                         </div>
                     </div>
                 </div>
-
-
-
             }
         </div>
         <br />
