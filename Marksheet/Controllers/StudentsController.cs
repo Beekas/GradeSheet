@@ -72,10 +72,12 @@ namespace Marksheet.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Student student = db.Students.Find(id);
+            
             if (student == null)
             {
                 return HttpNotFound();
             }
+
             ViewBag.SchoolId = new SelectList(db.Schools, "Id", "SchoolName", student.SchoolId);
             return View(student);
         }

@@ -1091,7 +1091,7 @@ namespace Marksheet.Controllers
                         marksvm.AcademicYear = marksheet.AcademicYear.Year;
                         marksvm.Logo = "/images/nepalgov.png";
                         marksvm.StudentName = item.Student.StudentName;
-                        marksvm.DOB = item.Student.DOB.ToString("yyyy-MM-dd");
+                        marksvm.DOB = ADTOBS.EngToNep(item.Student.DOB).Year.ToString()+"-"+ ADTOBS.EngToNep(item.Student.DOB).Month.ToString()+"-"+ ADTOBS.EngToNep(item.Student.DOB).Day.ToString();
                         marksvm.SymbolNo = item.Student.SymbolNo;
                         marksvm.NepaliPM = item.NepaliPM;
                         marksvm.NepaliTM = item.NepaliTM;
@@ -1197,10 +1197,11 @@ namespace Marksheet.Controllers
                         marksvm.StudentAddress = item.Student.Address;
                         marksvm.PresentDay = marksheet.Attendance.ToString();
                         marksvm.AcademicYear = marksheet.AcademicYear.Year;
+                        marksvm.DateOfIssue = marksheet.AcademicYear.ResultDate;
                         NepDate ActiveNepali = new NepDate();
                         ActiveNepali.Year =Convert.ToInt32(marksvm.AcademicYear);
-                        ActiveNepali.Month = 1;
-                        ActiveNepali.Day = 1;
+                        ActiveNepali.Month = 10;
+                        ActiveNepali.Day = 15;
                         marksvm.AcademicYearEng = ADTOBS.NepToEng(ActiveNepali).Year.ToString();
                         marksvm.AcademicDay = activeDays;
                         marksvm.Logo = "/images/nepalgov.png";
@@ -1214,8 +1215,8 @@ namespace Marksheet.Controllers
                             switch (caseSwitch)
                             {
                                 case "English":
-                                    objSubj.SerialNo = "2";
-                                    objSubj.Serial = 2;
+                                    objSubj.SerialNo = "1";
+                                    objSubj.Serial = 1;
                                     objSubj.SubjectName = subitem;
                                     objSubj.Theory = findGrade(marksheet.EnglishTM, 75);
                                     objSubj.Practical = findGrade(marksheet.EnglishPM, 25);
@@ -1226,8 +1227,8 @@ namespace Marksheet.Controllers
 
                                     break;
                                 case "Nepali":
-                                    objSubj.SerialNo = "1";
-                                    objSubj.Serial = 1;
+                                    objSubj.SerialNo = "2";
+                                    objSubj.Serial = 2;
                                     objSubj.SubjectName = subitem;
                                     objSubj.Theory = findGrade(marksheet.NepaliTM, 75);
                                     objSubj.Practical = findGrade(marksheet.NepaliPM, 25);

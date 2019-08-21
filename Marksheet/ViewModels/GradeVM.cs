@@ -24,6 +24,7 @@ namespace Marksheet.ViewModels
         public string PresentDay { get; set; }
         public string Logo { get; set; }
         public string SchoolCodeNo { get; set; }
+        public string DateOfIssue { get; set; }
 
         public List<SubjectVM> Subjects { get; set; }
 

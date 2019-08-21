@@ -189,6 +189,14 @@
     <Compile Include="Migrations\201908090901573_schoolcode.Designer.cs">
       <DependentUpon>201908090901573_schoolcode.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908210835172_resultDateActiveYear.cs" />
+    <Compile Include="Migrations\201908210835172_resultDateActiveYear.Designer.cs">
+      <DependentUpon>201908210835172_resultDateActiveYear.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908210837086_Eng.cs" />
+    <Compile Include="Migrations\201908210837086_Eng.Designer.cs">
+      <DependentUpon>201908210837086_Eng.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AcademicYear.cs" />
     <Compile Include="Models\Account.cs" />
@@ -1840,12 +1848,15 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\nepali.datepicker.v2.2.min.css" />
+    <Content Include="Content\nepali.datepicker.v2.2.min.js" />
     <Content Include="css\jquery-ui.css" />
     <Content Include="css\theme.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\nepalgov.png" />
     <Content Include="Images\schoollogo.jpg" />
     <Content Include="Images\1.jpg" />
     <Content Include="Scripts\bootstrap.js" />
@@ -2022,6 +2033,7 @@
     <Content Include="Admin\vendor\fontawesome-free\webfonts\fa-solid-900.woff2" />
     <Content Include="Admin\vendor\jquery\jquery.min.map" />
     <Content Include="Admin\vendor\jquery\jquery.slim.min.map" />
+    <Content Include="Images\marksheetmanual.pdf" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\datatables\autoFill.bootstrap.js" />
@@ -2301,6 +2313,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908090901573_schoolcode.resx">
       <DependentUpon>201908090901573_schoolcode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908210835172_resultDateActiveYear.resx">
+      <DependentUpon>201908210835172_resultDateActiveYear.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908210837086_Eng.resx">
+      <DependentUpon>201908210837086_Eng.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

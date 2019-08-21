@@ -112,7 +112,7 @@ namespace Marksheet.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,FiscalYear,Year,ActiveYear")] AcademicYear academicYear)
+        public ActionResult Edit([Bind(Include = "Id,FiscalYear,Year,ActiveYear,ActiveYearEnglish,ResultDate")] AcademicYear academicYear)
         {
             if (ModelState.IsValid)
             {

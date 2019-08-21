@@ -69,8 +69,8 @@
                     </div>
                     <div style="width:100%;">
                         <div style="width:50%;text-align:left;float:left;">
-                            Schol code No:  @Model[0].SchoolCodeNo<br />
-                            School Name:  @Model[0].SchoolName.ToUpper()
+                            @*Schol code No:  @Model[0].SchoolCodeNo<br />*@
+                            School Name:  @Model[0].SchoolName.ToUpper()<br/>
                         </div>
                         <div style="width:50%;text-align:right;float:right;">Year: @Model[0].AcademicYear</div>
                     </div>
@@ -83,7 +83,7 @@
             <table style="overflow-x:scroll;" id="tbl" border="0" cellpadding="0" cellspacing="0">
                 <tr>
                     <th style="width:7%;" rowspan="3">Symbol No</th>
-                    <th style="width:12%;" rowspan="3">Name</th>
+                    <th style="width:16%;" rowspan="3">Name</th>
                     <th style="width:8%;" rowspan="3">Date of Birth</th>
                     <th colspan="25">Subjects</th>
                     <th rowspan="3">GPA</th>
@@ -92,7 +92,8 @@
                 <tr>
                     <th style="width:8%;" colspan="3">Nepali</th>
                     <th style="width:8%;" colspan="3">English</th>
-                    <th>Mathematics</th>
+                    <th>Mathe
+                    <br/>matics</th>
                     <th style="width:8%;" colspan="3">Science and Environment Education</th>
                     <th style="width:8%;" colspan="3">Social Studies and Population Education</th>
                     <th style="width:8%;" colspan="3">Health and Physical Education</th>
@@ -144,7 +145,7 @@
                 {
                     <tr>
                         <td>@item.SymbolNo</td>
-                        <td>@item.StudentName</td>
+                        <td>@item.StudentName.ToUpper()</td>
                         <td>@item.DOB</td>
 
                         <td>@item.NepaliTM.ToString("G29")</td>

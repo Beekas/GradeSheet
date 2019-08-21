@@ -70,24 +70,25 @@
                                     @*image location images/schoollogo.jpg*@
                                 </div>
                                 <div style="width:90%;text-align:center;float:left;">
-                                    <b style="font-size:15px;font-weight:600;">Siddhalek Rural Municipatility</b><br />
-                                    <label style="font-size:15px;">Basic Education Examination Committee </label><br />
+                                    <b style="font-size:20px;">Siddhalek Rural Municipatility</b><br />
+                                    <b style="font-size:18px;">Basic Education Examination Committee </b><br />
                                     <label>Siddhalek, Dhading, 3 No. Province, Nepal</label><br />
-                                    <b style="font-size:15px;">BASIC EDUCATION CERTIFICATE(Grade-8)EXAMINATION-@Model[0].AcademicYear</b><br />
-                                    <b style="font-size:15px;font-weight:600;">GRADE-SHEET</b>
+                                    <b style="font-size:18px;">BASIC EDUCATION CERTIFICATE(Grade-8)EXAMINATION-@Model[0].AcademicYear</b><br />
+                                    <b style="font-size:18px;">GRADE-SHEET</b>
+                                    <br/>
                                 </div>
                             </div>
-                            <div style="width:100%;font-size:15px;">
+                            <div style="width:100%;font-size:15px;line-height:25px;">
                                 <b>SYMBOL NO: @item.RollNo</b><br />
                                 The Grades Secured by Mr/Miss <b>@item.StudentName</b>&nbsp;&nbsp; son/daughter of <b>@item.FatherName</b><br />
-                                student of <B>@item.SchoolName.ToUpper()</B><br />
-                                <b>has appeared in the Annual Examination of @Model[0].AcademicYear B.S (@item.AcademicYearEng A.D) and completed Basic Education (Grade 8) Examination.</b>According to school record his/her date of birth is <b>@item.DOBNep</b>
+                                student of <B>@item.SchoolName.ToUpper()</B>
+                                &nbsp;<b>has appeared in the Annual Examination of @Model[0].AcademicYear B.S (@item.AcademicYearEng A.D) and completed Basic Education (Grade 8) Examination.</b>According to school record his/her date of birth is <b>@item.DOBNep</b>
                             </div>
                             <div>&nbsp;<br /></div>
                         </div>
                     </div>
                     <div class="second">
-                        <table id="tbl" style="min-height:13cm;">
+                        <table id="tbl" style="min-height:13cm;font-size:15px;">
                             <tr>
                                 <th rowspan="2">S.N.</th>
                                 <th rowspan="2">Subjects</th>
@@ -135,7 +136,7 @@
                         <div>&nbsp;</div>
                         <div style="width:100%;">
                             <b>
-                                *grading: A+:Outstanding, A:Excellent, B+:Very Good, B:Good, C+:Satisfactory,C:Acceptable,
+                                *Grading: A+:Outstanding, A:Excellent, B+:Very Good, B:Good, C+:Satisfactory,C:Acceptable,
                                 D+:Partially Acceptable, D:Insufficient, E:Very Insufficient
                             </b>
                         </div>
@@ -146,11 +147,10 @@
                             </div>
                             <div class="width:30%;">&nbsp;</div>
                         </div>
-                        <div style="width:100%;min-height:20px;">&nbsp;<br /><br /><br /><br /><br /></div>
+                        <div style="width:100%;min-height:20px;">&nbsp;<br /><br /><br /><br /></div>
                         <div style="width:100%;">
                             <div class="alignleft3">
-                                <div style="border:1px solid black;min-height:100px;width:200px;"><br />&nbsp;&nbsp; SCHOOL'S
-                                STAMP</div>
+                                <div style="border:1px solid black;min-height:100px;width:200px;"><br />&nbsp;&nbsp;</div>
                             </div>
                             <div class="aligncenter3"><b>...............................<br />HEAD TEACHER</b></div>
                             <div class="aligncenter34"><b>.........................<br />CHECKED BY</b></div>
@@ -164,7 +164,7 @@
                             <div class="alignleft3">
                                
                             </div>
-                            <div class="aligncenter3"> <br /><br /><b>DATE OF ISSUE:</b></div>
+                            <div style="width:50%;float:left;text-align:left;padding-left:20px;"> <br /><br /><b>DATE OF ISSUE: @Model[0].DateOfIssue</b></div>
                           
 
                         </div>
@@ -209,21 +209,7 @@
             });
             return html;
         }
-
-        //    var $divBox1 = $("#printDiv").find("div.first");
-        //    var $divBox2 = $("#printDiv").find("div.second");
-        //    var $divBox3 = $("#printDiv").find("div.third");
-        //    var html = "";
-        //    var pageHead = "<div class='page'>";
-        //    var pageBottom = "</div>";
-        //    html = html + pageHead;
-        //    html = html + "<div id='one'>" + $divBox1.html() + "</div>";
-        //    html = html + "<div id='two'>" + $divBox2.html() + "</div>";
-        //    html = html + "<div id='three'>" + $divBox3.html() + "</div>";
-        //    html = html + pageBottom;
-        //    return html;
-        //}
-
+        
 
         function PrintElem(ele) {
             var mywindow = window.open('', '_blank', 'PRINT');
@@ -233,7 +219,6 @@
                 '.page {page-break-after:always;width: 21cm;min-height:26.7cm;padding: 0.5cm;margin:1cm auto;border: 1px black solid;background: white;box-sizing: border-box;-moz-box-sizing:border-box;}'
                 + 'table#tbl {border-collapse: collapse !important;width: 100%;}#tbl td, #tbl th {border: 1px solid black !important;padding: 1px !important;} .alignleft3 {float: left;text-align:left;width: 25%;}.aligncenter3 {float: left;text-align:center;width: 25%;}.aligncenter34 {float: left;text-align:center;width: 25%;}.alignright3 {float: right;text-align: right;width: 24%;}' +
                 '.alignleft {float:left;text-align:left; width:50%;}.alignright {float:left;text-align:left;width:50%;}' +
-
                 'div#one{width:98%;float: left;}' +
                 + 'div#two{width:98%;float: left;}' +
                 'div#three{width:98%;float: left;}' +
