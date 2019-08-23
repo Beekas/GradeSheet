@@ -21,6 +21,10 @@
                     <th>
                         @Html.DisplayNameFor(model => model.Year)
                     </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.ResultDate)
+                    </th>
                     <th>
                         @Html.DisplayNameFor(model => model.ActiveYear)
                     </th>
@@ -31,22 +35,27 @@
 
                 @foreach (var item in Model)
                 {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.FiscalYear)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Year)
-                        </td>
-                        <td>
-                            @Html.RadioButtonFor(modelItem => item.ActiveYear, true, new { id = "txtStatus", disabled = "disabled" })
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FiscalYear)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Year)@("("+ item.ActiveYearEnglish+")")
+                    </td>
+                  
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ResultDate)
+                    </td>
 
-                        </td>
-                        <td>
-                            @Html.ActionLink("Edit", "Edit", new { id = item.Id },new {@class="btn btn-primary"}) |
-                            <a href="#" id="btnStatus" data-id="@item.Id" class="btn btn-success">Change Status</a>
-                        </td>
-                    </tr>
+                    <td>
+                        @Html.RadioButtonFor(modelItem => item.ActiveYear, true, new { id = "txtStatus", disabled = "disabled" })
+
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-primary" }) |
+                        <a href="#" id="btnStatus" data-id="@item.Id" class="btn btn-success">Change Status</a>
+                    </td>
+                </tr>
                 }
             </tbody>
 

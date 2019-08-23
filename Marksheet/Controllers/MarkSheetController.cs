@@ -1202,7 +1202,7 @@ namespace Marksheet.Controllers
                         ActiveNepali.Year =Convert.ToInt32(marksvm.AcademicYear);
                         ActiveNepali.Month = 10;
                         ActiveNepali.Day = 15;
-                        marksvm.AcademicYearEng = ADTOBS.NepToEng(ActiveNepali).Year.ToString();
+                        marksvm.AcademicYearEng = marksheet.AcademicYear.ActiveYearEnglish;
                         marksvm.AcademicDay = activeDays;
                         marksvm.Logo = "/images/nepalgov.png";
 
