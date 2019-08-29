@@ -1300,7 +1300,7 @@ namespace Marksheet.Controllers
                                 case "Moral":
                                     objSubj.SerialNo = "7";
                                     objSubj.Serial = 7;
-                                    objSubj.SubjectName = "Moral Science";
+                                    objSubj.SubjectName = "Moral Education";
                                     objSubj.Theory = findGrade(marksheet.MoralTM, 25);
                                     objSubj.Practical = findGrade(marksheet.MoralPM, 25);
                                     objSubj.Remarks = "";

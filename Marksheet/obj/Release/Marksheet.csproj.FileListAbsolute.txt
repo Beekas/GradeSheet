@@ -323,3 +323,5 @@ E:\Projects\GradeSheet\Marksheet\obj\Release\Marksheet.dll
 E:\Projects\GradeSheet\Marksheet\obj\Release\Marksheet.pdb
 E:\Projects\GradeSheet\Marksheet\obj\Release\Marksheet.Migrations.resultDateActiveYear.resources
 E:\Projects\GradeSheet\Marksheet\obj\Release\Marksheet.Migrations.Eng.resources
+F:\GradeSheet\Marksheet\obj\Release\Marksheet.Migrations.resultDateActiveYear.resources
+F:\GradeSheet\Marksheet\obj\Release\Marksheet.Migrations.Eng.resources
