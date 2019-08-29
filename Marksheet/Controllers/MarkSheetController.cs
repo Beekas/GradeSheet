@@ -420,12 +420,12 @@ namespace Marksheet.Controllers
                             objSubj.Practical = findGrade(marksheet.ObtePM, 50);
                             objSubj.Remarks = "";
                             objSubj.FinalGrade = findGrade((marksheet.ObteTM + marksheet.ObtePM), 100);
-                            objSubj.GradePoint = findGradePoint((marksheet.ObteTM + marksheet.ObteTM), 100);
+                            objSubj.GradePoint = findGradePoint((marksheet.ObteTM + marksheet.ObtePM), 100);
                             lstSubject.Add(objSubj);
                             break;
                         case "Moral":
                             objSubj.SerialNo = "08";
-                            objSubj.SubjectName = item;
+                            objSubj.SubjectName = "Moral Education";
                             objSubj.Theory = findGrade(marksheet.MoralTM, 25);
                             objSubj.Practical = findGrade(marksheet.MoralPM, 25);
                             objSubj.Remarks = "";
@@ -1294,7 +1294,7 @@ namespace Marksheet.Controllers
                                     objSubj.Practical = findGrade(marksheet.ObtePM, 50);
                                     objSubj.Remarks = "";
                                     objSubj.FinalGrade = findGrade((marksheet.ObteTM + marksheet.ObtePM), 100);
-                                    objSubj.GradePoint = findGradePoint((marksheet.ObteTM + marksheet.ObteTM), 100);
+                                    objSubj.GradePoint = findGradePoint((marksheet.ObteTM + marksheet.ObtePM), 100);
                                     lstSubject.Add(objSubj);
                                     break;
                                 case "Moral":

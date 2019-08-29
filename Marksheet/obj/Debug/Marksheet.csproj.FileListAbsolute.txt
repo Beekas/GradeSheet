@@ -513,3 +513,5 @@ E:\Projects\GradeSheet\Marksheet\obj\Debug\Marksheet.pdb
 E:\Projects\GradeSheet\Marksheet\obj\Debug\Marksheet.csprojAssemblyReference.cache
 E:\Projects\GradeSheet\Marksheet\obj\Debug\Marksheet.Migrations.resultDateActiveYear.resources
 E:\Projects\GradeSheet\Marksheet\obj\Debug\Marksheet.Migrations.Eng.resources
+F:\GradeSheet\Marksheet\obj\Debug\Marksheet.Migrations.resultDateActiveYear.resources
+F:\GradeSheet\Marksheet\obj\Debug\Marksheet.Migrations.Eng.resources
