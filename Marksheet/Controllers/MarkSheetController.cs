@@ -1281,6 +1281,7 @@ namespace Marksheet.Controllers
                                     objSubj.Theory = findGrade(marksheet.HealthTM, 30);
                                     objSubj.Practical = findGrade(marksheet.HealthPM, 20);
                                     objSubj.Remarks = "";
+                                    objSubj.CreditHour = "2";
                                     objSubj.FinalGrade = findGrade((marksheet.HealthPM + marksheet.HealthTM), 50);
                                     objSubj.GradePoint = findGradePoint((marksheet.HealthPM + marksheet.HealthTM), 50);
                                     lstSubject.Add(objSubj);
@@ -1293,7 +1294,6 @@ namespace Marksheet.Controllers
                                     objSubj.Theory = findGrade(marksheet.ObteTM, 50);
                                     objSubj.Practical = findGrade(marksheet.ObtePM, 50);
                                     objSubj.Remarks = "";
-                                    objSubj.CreditHour = "2";
                                     objSubj.FinalGrade = findGrade((marksheet.ObteTM + marksheet.ObtePM), 100);
                                     objSubj.GradePoint = findGradePoint((marksheet.ObteTM + marksheet.ObtePM), 100);
                                     lstSubject.Add(objSubj);
