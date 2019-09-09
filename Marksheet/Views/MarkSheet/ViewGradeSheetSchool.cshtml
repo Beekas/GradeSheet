@@ -70,7 +70,7 @@
                                     @*image location images/schoollogo.jpg*@
                                 </div>
                                 <div style="width:85%;text-align:center;float:left;margin-left:-3%;">
-                                    <strong style="font-size:26px;font-family:'Malgun Gothic'">Siddhalek Rural Municipatility</strong><br />
+                                    <strong style="font-size:26px;font-family:'Malgun Gothic'">Siddhalek Rural Municipality</strong><br />
                                     <b style="font-size:20px;">Basic Education Examination Committee </b><br />
                                     <label>Siddhalek, Dhading, 3 No. Province, Nepal</label><br />
                                     <b style="font-size:18px;">BASIC EDUCATION CERTIFICATE(Grade-8)EXAMINATION-@Model[0].AcademicYear</b><br />
@@ -100,28 +100,30 @@
                                 <th rowspan="2">Remarks</th>
                             </tr>
                             <tr>
-                                <th>PR</th>
                                 <th>TH</th>
+                                <th>PR</th>
+
 
 
                             </tr>
                             @foreach (var subitem in item.Subjects.OrderBy(m => m.Serial))
                             {
-                                <tr>
-                                    <td style="text-align:center;">@subitem.SerialNo</td>
-                                    <td>@subitem.SubjectName</td>
-                                    <td style="text-align:center;">@subitem.CreditHour</td>
-                                    <td style="text-align:center;">@subitem.Practical</td>
-                                    <td style="text-align:center;">@subitem.Theory</td>
-                                    <td style="text-align:center;">@subitem.FinalGrade</td>
-                                    <td style="text-align:center;">@subitem.GradePoint</td>
-                                    <td>@subitem.Remarks</td>
-                                </tr>
+                            <tr>
+                                <td style="text-align:center;">@subitem.SerialNo</td>
+                                <td>@subitem.SubjectName</td>
+                                <td style="text-align:center;">@subitem.CreditHour</td>
+                                <td style="text-align:center;">@subitem.Theory</td>
+
+                                <td style="text-align:center;">@subitem.Practical</td>
+                                <td style="text-align:center;">@subitem.FinalGrade</td>
+                                <td style="text-align:center;">@subitem.GradePoint</td>
+                                <td>@subitem.Remarks</td>
+                            </tr>
                             }
-                            <tr style="font-weight:bold;">
+                            @*<tr style="font-weight:bold;">
                                 <td colspan="6" style="text-align:right;">GRADE:</td>
                                 <td colspan="2" style="text-align:left;">@item.Grade</td>
-                            </tr>
+                            </tr>*@
                             <tr style="font-weight:bold;"> 
                                 <td colspan="6" style="text-align:right;">GRADE POINT AVERAGE(GPA):</td>
                                 <td colspan="2" style="text-align:left;">@item.GPA</td>
